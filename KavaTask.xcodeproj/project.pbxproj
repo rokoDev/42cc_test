@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1891C1B6176A27F300D18C61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B5176A27F300D18C61 /* UIKit.framework */; };
+		1891C1B8176A27F300D18C61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B7176A27F300D18C61 /* Foundation.framework */; };
+		1891C1BA176A27F300D18C61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B9176A27F300D18C61 /* CoreGraphics.framework */; };
+		1891C1C0176A27F300D18C61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1BE176A27F300D18C61 /* InfoPlist.strings */; };
+		1891C1C2176A27F300D18C61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891C1C1176A27F300D18C61 /* main.m */; };
+		1891C1C6176A27F300D18C61 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891C1C5176A27F300D18C61 /* AppDelegate.m */; };
+		1891C1C8176A27F300D18C61 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1C7176A27F300D18C61 /* Default.png */; };
+		1891C1CA176A27F300D18C61 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1C9176A27F300D18C61 /* Default@2x.png */; };
+		1891C1CC176A27F300D18C61 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1CB176A27F300D18C61 /* Default-568h@2x.png */; };
+		1891C1CF176A27F300D18C61 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1CD176A27F300D18C61 /* MainStoryboard.storyboard */; };
+		1891C1D2176A27F300D18C61 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891C1D1176A27F300D18C61 /* ViewController.m */; };
+		1891C1DA176A27F400D18C61 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1D9176A27F400D18C61 /* SenTestingKit.framework */; };
+		1891C1DB176A27F400D18C61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B5176A27F300D18C61 /* UIKit.framework */; };
+		1891C1DC176A27F400D18C61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B7176A27F300D18C61 /* Foundation.framework */; };
+		1891C1E4176A27F400D18C61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1E2176A27F400D18C61 /* InfoPlist.strings */; };
+		1891C1E7176A27F400D18C61 /* KavaTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891C1E6176A27F400D18C61 /* KavaTaskTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1891C1DD176A27F400D18C61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1891C1AA176A27F300D18C61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1891C1B1176A27F300D18C61;
+			remoteInfo = KavaTask;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1891C1B2176A27F300D18C61 /* KavaTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KavaTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1891C1B5176A27F300D18C61 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1891C1B7176A27F300D18C61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1891C1B9176A27F300D18C61 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1891C1BD176A27F300D18C61 /* KavaTask-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KavaTask-Info.plist"; sourceTree = "<group>"; };
+		1891C1BF176A27F300D18C61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1891C1C1176A27F300D18C61 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1891C1C3176A27F300D18C61 /* KavaTask-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KavaTask-Prefix.pch"; sourceTree = "<group>"; };
+		1891C1C4176A27F300D18C61 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1891C1C5176A27F300D18C61 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1891C1C7176A27F300D18C61 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1891C1C9176A27F300D18C61 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1891C1CB176A27F300D18C61 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1891C1CE176A27F300D18C61 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		1891C1D0176A27F300D18C61 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1891C1D1176A27F300D18C61 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1891C1D8176A27F400D18C61 /* KavaTaskTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KavaTaskTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1891C1D9176A27F400D18C61 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1891C1E1176A27F400D18C61 /* KavaTaskTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KavaTaskTests-Info.plist"; sourceTree = "<group>"; };
+		1891C1E3176A27F400D18C61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1891C1E5176A27F400D18C61 /* KavaTaskTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KavaTaskTests.h; sourceTree = "<group>"; };
+		1891C1E6176A27F400D18C61 /* KavaTaskTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KavaTaskTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1891C1AF176A27F300D18C61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1891C1B6176A27F300D18C61 /* UIKit.framework in Frameworks */,
+				1891C1B8176A27F300D18C61 /* Foundation.framework in Frameworks */,
+				1891C1BA176A27F300D18C61 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1891C1D4176A27F400D18C61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1891C1DA176A27F400D18C61 /* SenTestingKit.framework in Frameworks */,
+				1891C1DB176A27F400D18C61 /* UIKit.framework in Frameworks */,
+				1891C1DC176A27F400D18C61 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1891C1A9176A27F300D18C61 = {
+			isa = PBXGroup;
+			children = (
+				1891C1BB176A27F300D18C61 /* KavaTask */,
+				1891C1DF176A27F400D18C61 /* KavaTaskTests */,
+				1891C1B4176A27F300D18C61 /* Frameworks */,
+				1891C1B3176A27F300D18C61 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1891C1B3176A27F300D18C61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1891C1B2176A27F300D18C61 /* KavaTask.app */,
+				1891C1D8176A27F400D18C61 /* KavaTaskTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1891C1B4176A27F300D18C61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1891C1B5176A27F300D18C61 /* UIKit.framework */,
+				1891C1B7176A27F300D18C61 /* Foundation.framework */,
+				1891C1B9176A27F300D18C61 /* CoreGraphics.framework */,
+				1891C1D9176A27F400D18C61 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1891C1BB176A27F300D18C61 /* KavaTask */ = {
+			isa = PBXGroup;
+			children = (
+				1891C1C4176A27F300D18C61 /* AppDelegate.h */,
+				1891C1C5176A27F300D18C61 /* AppDelegate.m */,
+				1891C1CD176A27F300D18C61 /* MainStoryboard.storyboard */,
+				1891C1D0176A27F300D18C61 /* ViewController.h */,
+				1891C1D1176A27F300D18C61 /* ViewController.m */,
+				1891C1BC176A27F300D18C61 /* Supporting Files */,
+			);
+			path = KavaTask;
+			sourceTree = "<group>";
+		};
+		1891C1BC176A27F300D18C61 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1891C1BD176A27F300D18C61 /* KavaTask-Info.plist */,
+				1891C1BE176A27F300D18C61 /* InfoPlist.strings */,
+				1891C1C1176A27F300D18C61 /* main.m */,
+				1891C1C3176A27F300D18C61 /* KavaTask-Prefix.pch */,
+				1891C1C7176A27F300D18C61 /* Default.png */,
+				1891C1C9176A27F300D18C61 /* Default@2x.png */,
+				1891C1CB176A27F300D18C61 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1891C1DF176A27F400D18C61 /* KavaTaskTests */ = {
+			isa = PBXGroup;
+			children = (
+				1891C1E5176A27F400D18C61 /* KavaTaskTests.h */,
+				1891C1E6176A27F400D18C61 /* KavaTaskTests.m */,
+				1891C1E0176A27F400D18C61 /* Supporting Files */,
+			);
+			path = KavaTaskTests;
+			sourceTree = "<group>";
+		};
+		1891C1E0176A27F400D18C61 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1891C1E1176A27F400D18C61 /* KavaTaskTests-Info.plist */,
+				1891C1E2176A27F400D18C61 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1891C1B1176A27F300D18C61 /* KavaTask */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1891C1EA176A27F400D18C61 /* Build configuration list for PBXNativeTarget "KavaTask" */;
+			buildPhases = (
+				1891C1AE176A27F300D18C61 /* Sources */,
+				1891C1AF176A27F300D18C61 /* Frameworks */,
+				1891C1B0176A27F300D18C61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KavaTask;
+			productName = KavaTask;
+			productReference = 1891C1B2176A27F300D18C61 /* KavaTask.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1891C1D7176A27F400D18C61 /* KavaTaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1891C1ED176A27F400D18C61 /* Build configuration list for PBXNativeTarget "KavaTaskTests" */;
+			buildPhases = (
+				1891C1D3176A27F400D18C61 /* Sources */,
+				1891C1D4176A27F400D18C61 /* Frameworks */,
+				1891C1D5176A27F400D18C61 /* Resources */,
+				1891C1D6176A27F400D18C61 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1891C1DE176A27F400D18C61 /* PBXTargetDependency */,
+			);
+			name = KavaTaskTests;
+			productName = KavaTaskTests;
+			productReference = 1891C1D8176A27F400D18C61 /* KavaTaskTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1891C1AA176A27F300D18C61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = roko;
+			};
+			buildConfigurationList = 1891C1AD176A27F300D18C61 /* Build configuration list for PBXProject "KavaTask" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1891C1A9176A27F300D18C61;
+			productRefGroup = 1891C1B3176A27F300D18C61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1891C1B1176A27F300D18C61 /* KavaTask */,
+				1891C1D7176A27F400D18C61 /* KavaTaskTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1891C1B0176A27F300D18C61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1891C1C0176A27F300D18C61 /* InfoPlist.strings in Resources */,
+				1891C1C8176A27F300D18C61 /* Default.png in Resources */,
+				1891C1CA176A27F300D18C61 /* Default@2x.png in Resources */,
+				1891C1CC176A27F300D18C61 /* Default-568h@2x.png in Resources */,
+				1891C1CF176A27F300D18C61 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1891C1D5176A27F400D18C61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1891C1E4176A27F400D18C61 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1891C1D6176A27F400D18C61 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1891C1AE176A27F300D18C61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1891C1C2176A27F300D18C61 /* main.m in Sources */,
+				1891C1C6176A27F300D18C61 /* AppDelegate.m in Sources */,
+				1891C1D2176A27F300D18C61 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1891C1D3176A27F400D18C61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1891C1E7176A27F400D18C61 /* KavaTaskTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1891C1DE176A27F400D18C61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1891C1B1176A27F300D18C61 /* KavaTask */;
+			targetProxy = 1891C1DD176A27F400D18C61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1891C1BE176A27F300D18C61 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1891C1BF176A27F300D18C61 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1891C1CD176A27F300D18C61 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1891C1CE176A27F300D18C61 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		1891C1E2176A27F400D18C61 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1891C1E3176A27F400D18C61 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1891C1E8176A27F400D18C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1891C1E9176A27F400D18C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1891C1EB176A27F400D18C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KavaTask/KavaTask-Prefix.pch";
+				INFOPLIST_FILE = "KavaTask/KavaTask-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1891C1EC176A27F400D18C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KavaTask/KavaTask-Prefix.pch";
+				INFOPLIST_FILE = "KavaTask/KavaTask-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1891C1EE176A27F400D18C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KavaTask.app/KavaTask";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KavaTask/KavaTask-Prefix.pch";
+				INFOPLIST_FILE = "KavaTaskTests/KavaTaskTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		1891C1EF176A27F400D18C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KavaTask.app/KavaTask";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KavaTask/KavaTask-Prefix.pch";
+				INFOPLIST_FILE = "KavaTaskTests/KavaTaskTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1891C1AD176A27F300D18C61 /* Build configuration list for PBXProject "KavaTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1891C1E8176A27F400D18C61 /* Debug */,
+				1891C1E9176A27F400D18C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1891C1EA176A27F400D18C61 /* Build configuration list for PBXNativeTarget "KavaTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1891C1EB176A27F400D18C61 /* Debug */,
+				1891C1EC176A27F400D18C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1891C1ED176A27F400D18C61 /* Build configuration list for PBXNativeTarget "KavaTaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1891C1EE176A27F400D18C61 /* Debug */,
+				1891C1EF176A27F400D18C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1891C1AA176A27F300D18C61 /* Project object */;
+}
