@@ -7,6 +7,7 @@
 //
 
 #import "AboutMeViewController.h"
+#import "MyScrollView.h"
 
 @interface AboutMeViewController ()
 
@@ -28,47 +29,20 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UIImage *userPhoto = [UIImage imageNamed:@"userface.png"];
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                              @"Mikhail", @"Name",
-                              @"Zinkovsky", @"Surname",
-                              @"17.11.1986", @"Birthday",
-                              @"male", @"Sex",
-                              @"ukrainian", @"Language",
-                              @"mi-han@inbox.ru", @"e-mail",
-                              @"Kiev", @"City",
-                              nil];
+    CGRect fullScreenRect=[[UIScreen mainScreen] applicationFrame];
+    UIScrollView *sv = [[MyScrollView alloc] initWithFrame:fullScreenRect];
+    self.scrollView = sv;
+    [[self mainView] addSubview:self.scrollView];
     
-    //[self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight];
+    UIImageView *iv  = [[UIImageView alloc] initWithFrame:CGRectZero];
+    self.imageView = iv;
+    [[self scrollView] addSubview:self.imageView];
     
-    self.imageView.image = userPhoto;
-    
-    float horizontalDistanceBetweenNameAndContent = 5;
-    float verticalDistanceBetweenLines = 60;
-    
-    float x = 30, y = 240;
-    
-    for (id key in userInfo) {
-        UILabel *fieldName = [[UILabel alloc] initWithFrame:CGRectMake(x, y, 100, 30)];
-        fieldName.text = key;
-        [self.scrollView addSubview:fieldName];
-        
-        UILabel *content = [[UILabel alloc] initWithFrame:CGRectMake(x+100+horizontalDistanceBetweenNameAndContent, y, 150, 30)];
-        content.text = [userInfo objectForKey:key];
-        [self.scrollView addSubview:content];
-        y += verticalDistanceBetweenLines;
+    if (![self loadDataFromDatabase]) {
+        [self createNewUserData];
+        [self saveToDatabase];
     }
-    
-    //CGSize scrollViewSize = [self.scrollView contentSize];
-    //scrollViewSize.height = y;
-    //self.scrollView.bounds = (CGRect){self.scrollView.bounds.origin, scrollViewSize};
-    
-    //scrollViewSize.height = MAX(scrollViewSize.height, y);
-    //[self.scrollView setContentSize:scrollViewSize];
-    
-    //CGRect scrollFrame = self.scrollView.frame;
-    //scrollFrame.size.height = y;
-    //[self.scrollView setFrame:scrollFrame];
+    [self placeUI];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,17 +51,54 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (BOOL)loadDataFromDatabase
 {
-    [super viewWillAppear:animated];
+    return NO;
+}
+
+- (void)createNewUserData
+{
+    UIImage *userPhoto = [UIImage imageNamed:@"userface.png"];
+    self.imageView.image = userPhoto;
+    self.userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                     @"Mikhail", @"Name",
+                     @"Zinkovsky", @"Surname",
+                     @"17.11.1986", @"Birthday",
+                     @"male", @"Sex",
+                     @"ukrainian", @"Language",
+                     @"mi-han@inbox.ru", @"e-mail",
+                     @"Kiev", @"City",
+                     nil];
+}
+
+- (void)placeUI
+{
+    CGRect scrollViewFrame= self.scrollView.frame;
+    self.imageView.frame = CGRectMake((scrollViewFrame.size.width-self.imageView.image.size.width)/2, scrollViewFrame.size.height/20, self.imageView.image.size.width, self.imageView.image.size.height);
+    [[self scrollView] addSubview:self.imageView];
     
-    CGSize scrollViewSize = [self.scrollView contentSize];
-    scrollViewSize.height = 660;
-    scrollViewSize.width = 320;
-    //self.scrollView.bounds = (CGRect){self.scrollView.bounds.origin, scrollViewSize};
+    float horizontalDistanceBetweenNameAndContent = 5;
+    float verticalDistanceBetweenLines = 60;
     
-    //scrollViewSize.height = MAX(scrollViewSize.height, y);
-    [self.scrollView setContentSize:scrollViewSize];
+    float x = 30, y = 240;
+    
+    for (id key in self.userInfo) {
+        UILabel *fieldName = [[UILabel alloc] initWithFrame:CGRectMake(x, y, 100, 30)];
+        fieldName.text = key;
+        [self.scrollView addSubview:fieldName];
+        
+        UILabel *content = [[UILabel alloc] initWithFrame:CGRectMake(x+100+horizontalDistanceBetweenNameAndContent, y, 150, 30)];
+        content.text = [self.userInfo objectForKey:key];
+        [self.scrollView addSubview:content];
+        y += verticalDistanceBetweenLines;
+    }
+    
+    [(MyScrollView*)[self scrollView] adjustContentSize];
+}
+
+- (void)saveToDatabase
+{
+    
 }
 
 @end

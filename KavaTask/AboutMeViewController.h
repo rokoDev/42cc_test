@@ -7,9 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FMDatabase.h"
 
 @interface AboutMeViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIView *mainView;
+
+@property (weak, nonatomic) UIScrollView *scrollView;
+@property (weak, nonatomic) UIImageView *imageView;
+
+@property (strong, nonatomic) NSDictionary *userInfo;
+@property (strong, nonatomic) FMDatabase *aboutMeDB;
+
+- (BOOL)loadDataFromDatabase;
+- (void)createNewUserData;
+- (void)placeUI;
+- (void)saveToDatabase;
 @end

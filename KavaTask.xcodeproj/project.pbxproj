@@ -24,6 +24,7 @@
 		1891C1E7176A27F400D18C61 /* KavaTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891C1E6176A27F400D18C61 /* KavaTaskTests.m */; };
 		18FD68DA176B038F00BC9C0F /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */; };
 		18FD68DD176B0F7900BC9C0F /* userface.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FD68DC176B0F7900BC9C0F /* userface.png */; };
+		18FD68E3176B406400BC9C0F /* MyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68E2176B406400BC9C0F /* MyScrollView.m */; };
 		CFF21C9264384691AA1CB0B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53916CB2A70E4D2DB4D7F29A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,8 @@
 		18FD68D8176B038F00BC9C0F /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
 		18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeViewController.m; sourceTree = "<group>"; };
 		18FD68DC176B0F7900BC9C0F /* userface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userface.png; sourceTree = "<group>"; };
+		18FD68E1176B406400BC9C0F /* MyScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScrollView.h; sourceTree = "<group>"; };
+		18FD68E2176B406400BC9C0F /* MyScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScrollView.m; sourceTree = "<group>"; };
 		45BD6D9FE4A641D5830E9D5C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		53916CB2A70E4D2DB4D7F29A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -130,6 +133,8 @@
 				1891C1CD176A27F300D18C61 /* MainStoryboard.storyboard */,
 				18FD68D8176B038F00BC9C0F /* AboutMeViewController.h */,
 				18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */,
+				18FD68E1176B406400BC9C0F /* MyScrollView.h */,
+				18FD68E2176B406400BC9C0F /* MyScrollView.m */,
 				1891C1BC176A27F300D18C61 /* Supporting Files */,
 			);
 			path = KavaTask;
@@ -321,6 +326,7 @@
 				1891C1C2176A27F300D18C61 /* main.m in Sources */,
 				1891C1C6176A27F300D18C61 /* AppDelegate.m in Sources */,
 				18FD68DA176B038F00BC9C0F /* AboutMeViewController.m in Sources */,
+				18FD68E3176B406400BC9C0F /* MyScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
