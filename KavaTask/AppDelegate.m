@@ -8,6 +8,13 @@
 
 #import "AppDelegate.h"
 
+NSString *const AboutMeDatabaseFileName = @"aboutMeDatabase.db";
+NSString *const AboutMeTableName        = @"aboutMeTable";
+NSString *const KeyField                = @"id";
+NSString *const PhotoField              = @"photo";
+NSString *const InfoField               = @"info";
+NSString *const MyIdInDatabase          = @"me";
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -41,6 +48,37 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Application's Documents directory
+
+// Returns the URL to the application's Documents directory.
+- (NSString *)applicationDocumentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [paths objectAtIndex:0];
+}
+
+#pragma mark - Full path for a file in document directory
+
+- (NSString *)getFullPathForFileInDocDir:(NSString*)fileName
+{
+    return [[self applicationDocumentsDirectory] stringByAppendingPathComponent:fileName];
+}
+
+#pragma mark - Show alert with error message
+
+- (void)showErrorAlert:(NSError *)error
+{
+    if (!error)
+        return;
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:NSLocalizedString(@"Error", @"Error")
+                              message:error.localizedDescription
+                              delegate:nil
+                              cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                              otherButtonTitles:nil];
+    [alertView show];
 }
 
 @end

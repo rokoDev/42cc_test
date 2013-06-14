@@ -8,6 +8,7 @@
 
 #import "AboutMeViewController.h"
 #import "MyScrollView.h"
+#import "AppDelegate.h"
 
 @interface AboutMeViewController ()
 
@@ -28,6 +29,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//    self.aboutMeDB = [FMDatabase databaseWithPath:[appDelegate getFullPathForFileInDocDir:AboutMeDatabaseFileName]];
     
     CGRect fullScreenRect=[[UIScreen mainScreen] applicationFrame];
     UIScrollView *sv = [[MyScrollView alloc] initWithFrame:fullScreenRect];
@@ -39,8 +42,12 @@
     [[self scrollView] addSubview:self.imageView];
     
     if (![self loadDataFromDatabase]) {
+        NSLog(@"couldn't load data from database");
         [self createNewUserData];
         [self saveToDatabase];
+    }
+    else {
+        NSLog(@"data has been successfully loaded form database");
     }
     [self placeUI];
 }
@@ -49,11 +56,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (BOOL)loadDataFromDatabase
-{
-    return NO;
 }
 
 - (void)createNewUserData
@@ -84,7 +86,7 @@
     
     for (id key in self.userInfo) {
         UILabel *fieldName = [[UILabel alloc] initWithFrame:CGRectMake(x, y, 100, 30)];
-        fieldName.text = key;
+        fieldName.text = [NSString stringWithFormat:@"%@:", key];
         [self.scrollView addSubview:fieldName];
         
         UILabel *content = [[UILabel alloc] initWithFrame:CGRectMake(x+100+horizontalDistanceBetweenNameAndContent, y, 150, 30)];
@@ -98,7 +100,79 @@
 
 - (void)saveToDatabase
 {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
+    //create database if it does not exists
+    FMDatabase *aboutMeDB = [FMDatabase databaseWithPath:[appDelegate getFullPathForFileInDocDir:AboutMeDatabaseFileName]];
+    
+    //open database
+    if (![aboutMeDB open]) {
+        return;
+    }
+    
+    //create table if it does not exists
+    NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('%@' TEXT UNIQUE, '%@' BLOB, '%@' BLOB)", AboutMeTableName, KeyField, PhotoField, InfoField];
+    if (![aboutMeDB executeUpdate:sql]) {
+        NSError *error = [aboutMeDB lastError];
+        NSLog(@"Error: %@ code: %ld", error.localizedDescription, (long)error.code);
+        //[appDelegate showErrorAlert:error];
+        return;
+    }
+    
+    //save data to the database
+    sql = [NSString stringWithFormat:@"INSERT INTO %@ ('%@', '%@', '%@') VALUES (?, ?, ?)", AboutMeTableName, KeyField, PhotoField, InfoField];
+    NSData *photoData = UIImagePNGRepresentation(self.imageView.image);
+    NSData *infoData = [NSPropertyListSerialization dataWithPropertyList:self.userInfo
+                                                                  format:NSPropertyListBinaryFormat_v1_0
+                                                                 options:0
+                                                                   error:NULL];
+    if (![aboutMeDB executeUpdate:sql, MyIdInDatabase, photoData, infoData]) {
+        NSError *error = [aboutMeDB lastError];
+        NSLog(@"Error: %@ code: %ld", error.localizedDescription, (long)error.code);
+        //[appDelegate showErrorAlert:error];
+        return;
+    }
+    
+    NSLog(@"data has been saved to database");
+    
+    //close database
+    [aboutMeDB close];
+}
+
+- (BOOL)loadDataFromDatabase
+{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    //create database if it does not exists
+    FMDatabase *aboutMeDB = [FMDatabase databaseWithPath:[appDelegate getFullPathForFileInDocDir:AboutMeDatabaseFileName]];
+    
+    //open database
+    if (![aboutMeDB open]) {
+        return NO;
+    }
+    
+    //read database
+    NSString* sqliteQuery = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ = '%@'", AboutMeTableName, KeyField, MyIdInDatabase];
+    FMResultSet *result = [aboutMeDB executeQuery:sqliteQuery];
+    
+    if ([result next]) {
+        NSData *photoData = [result dataForColumn:PhotoField];
+        NSData *infoData = [result dataForColumn:InfoField];
+        
+        if (!photoData || !infoData)
+            return NO;
+        UIImage *userPhoto = [UIImage imageWithData:photoData];
+        self.imageView.image = userPhoto;
+        
+        NSPropertyListFormat plistFormat;
+        self.userInfo = [NSPropertyListSerialization propertyListWithData:infoData
+                                                                  options:0
+                                                                   format:&plistFormat
+                                                                    error:NULL];
+        return YES;
+    }
+    else
+        return NO;
 }
 
 @end

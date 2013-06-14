@@ -17,10 +17,11 @@
 @property (weak, nonatomic) UIImageView *imageView;
 
 @property (strong, nonatomic) NSDictionary *userInfo;
-@property (strong, nonatomic) FMDatabase *aboutMeDB;
+//@property (strong, nonatomic) FMDatabase *aboutMeDB;
 
-- (BOOL)loadDataFromDatabase;
 - (void)createNewUserData;
 - (void)placeUI;
 - (void)saveToDatabase;
+- (BOOL)loadDataFromDatabase;
+
 @end
