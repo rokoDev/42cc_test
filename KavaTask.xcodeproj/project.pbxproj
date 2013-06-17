@@ -22,6 +22,10 @@
 		1891C1DC176A27F400D18C61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B7176A27F300D18C61 /* Foundation.framework */; };
 		1891C1E4176A27F400D18C61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1E2176A27F400D18C61 /* InfoPlist.strings */; };
 		1891C1E7176A27F400D18C61 /* KavaTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891C1E6176A27F400D18C61 /* KavaTaskTests.m */; };
+		18CE361A176EF8E4000D035A /* MyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68E2176B406400BC9C0F /* MyScrollView.m */; };
+		18CE361B176EF8E9000D035A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891C1C5176A27F300D18C61 /* AppDelegate.m */; };
+		18CE361D176EF97E000D035A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1CD176A27F300D18C61 /* MainStoryboard.storyboard */; };
+		18CE361F176EFA91000D035A /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */; };
 		18FD68DA176B038F00BC9C0F /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */; };
 		18FD68DD176B0F7900BC9C0F /* userface.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FD68DC176B0F7900BC9C0F /* userface.png */; };
 		18FD68E3176B406400BC9C0F /* MyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68E2176B406400BC9C0F /* MyScrollView.m */; };
@@ -269,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1891C1E4176A27F400D18C61 /* InfoPlist.strings in Resources */,
+				18CE361D176EF97E000D035A /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +340,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1891C1E7176A27F400D18C61 /* KavaTaskTests.m in Sources */,
+				18CE361A176EF8E4000D035A /* MyScrollView.m in Sources */,
+				18CE361B176EF8E9000D035A /* AppDelegate.m in Sources */,
+				18CE361F176EFA91000D035A /* AboutMeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

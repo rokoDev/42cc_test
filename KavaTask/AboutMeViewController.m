@@ -9,6 +9,7 @@
 #import "AboutMeViewController.h"
 #import "MyScrollView.h"
 #import "AppDelegate.h"
+#import "FMDatabase.h"
 
 @interface AboutMeViewController ()
 
@@ -29,10 +30,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//    self.aboutMeDB = [FMDatabase databaseWithPath:[appDelegate getFullPathForFileInDocDir:AboutMeDatabaseFileName]];
     
     CGRect fullScreenRect=[[UIScreen mainScreen] applicationFrame];
+    fullScreenRect.origin = CGPointZero;
     UIScrollView *sv = [[MyScrollView alloc] initWithFrame:fullScreenRect];
     self.scrollView = sv;
     [[self mainView] addSubview:self.scrollView];
@@ -40,11 +40,12 @@
     UIImageView *iv  = [[UIImageView alloc] initWithFrame:CGRectZero];
     self.imageView = iv;
     [[self scrollView] addSubview:self.imageView];
+    self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    if (![self loadDataFromDatabase]) {
+    if (![self loadDataFromDatabase:AboutMeTableName]) {
         NSLog(@"couldn't load data from database");
         [self createNewUserData];
-        [self saveToDatabase];
+        [self saveToDatabase:AboutMeTableName];
     }
     else {
         NSLog(@"data has been successfully loaded form database");
@@ -75,35 +76,95 @@
 
 - (void)placeUI
 {
-    CGRect scrollViewFrame= self.scrollView.frame;
-    self.imageView.frame = CGRectMake((scrollViewFrame.size.width-self.imageView.image.size.width)/2, scrollViewFrame.size.height/20, self.imageView.image.size.width, self.imageView.image.size.height);
-    [[self scrollView] addSubview:self.imageView];
+    UIScrollView *sv = self.scrollView;
     
-    float horizontalDistanceBetweenNameAndContent = 5;
-    float verticalDistanceBetweenLines = 60;
+    sv.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[sv]|"
+                                             options:0 metrics:nil
+                                               views:@{@"sv":sv}]];
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[sv]|"
+                                             options:0 metrics:nil
+                                               views:@{@"sv":sv}]];
     
-    float x = 30, y = 240;
+    sv.scrollEnabled = YES;
+    sv.alwaysBounceVertical = YES;
     
+    
+    UIImageView *iv = self.imageView;
+    
+    [sv addSubview:iv];
+    
+    iv.translatesAutoresizingMaskIntoConstraints = NO;
+    [sv addConstraint:[NSLayoutConstraint constraintWithItem:iv
+                                                                attribute:NSLayoutAttributeCenterX
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:sv
+                                                                attribute:NSLayoutAttributeCenterX
+                                                               multiplier:1.0
+                                                                 constant:0]];
+    [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[iv]"
+                                                                            options:0 metrics:nil
+                                                                              views:@{@"iv":iv}]];
+    
+    
+    UILabel* previousLab = nil;
     for (id key in self.userInfo) {
-        UILabel *fieldName = [[UILabel alloc] initWithFrame:CGRectMake(x, y, 100, 30)];
+        UILabel *fieldName = [UILabel new];
+        fieldName.translatesAutoresizingMaskIntoConstraints = NO;
         fieldName.text = [NSString stringWithFormat:@"%@:", key];
-        [self.scrollView addSubview:fieldName];
+        [sv addSubview:fieldName];
+        [sv addConstraint:[NSLayoutConstraint constraintWithItem:fieldName
+                                                       attribute:NSLayoutAttributeRight
+                                                       relatedBy:NSLayoutRelationEqual
+                                                          toItem:sv
+                                                       attribute:NSLayoutAttributeCenterX
+                                                      multiplier:1.0
+                                                        constant:0]];
+        if (!previousLab) { // first one, pin to top
+            [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[iv]-(50)-[lab]"
+                                                                       options:0 metrics:nil
+                                                                         views:@{@"lab":fieldName, @"iv":iv}]];
+        } else { // all others, pin to previous
+            [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[prev]-(50)-[lab]"
+                                                                       options:0 metrics:nil
+                                                                         views:@{@"lab":fieldName, @"prev":previousLab}]];
+        }
         
-        UILabel *content = [[UILabel alloc] initWithFrame:CGRectMake(x+100+horizontalDistanceBetweenNameAndContent, y, 150, 30)];
+        UILabel *content = [UILabel new];
+        content.translatesAutoresizingMaskIntoConstraints = NO;
         content.text = [self.userInfo objectForKey:key];
-        [self.scrollView addSubview:content];
-        y += verticalDistanceBetweenLines;
+        [sv addSubview:content];
+        [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[fieldName]-[lab]"
+                                                                   options:0 metrics:nil
+                                                                     views:@{@"lab":content,@"fieldName":fieldName}]];
+        
+        if (!previousLab) { // first one, pin to top
+            [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[iv]-(50)-[lab]"
+                                                                       options:0 metrics:nil
+                                                                         views:@{@"lab":content, @"iv":iv}]];
+        } else { // all others, pin to previous
+            [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[prev]-(50)-[lab]"
+                                                                       options:0 metrics:nil
+                                                                         views:@{@"lab":content, @"prev":previousLab}]];
+        }
+        
+        previousLab = fieldName;
     }
     
-    [(MyScrollView*)[self scrollView] adjustContentSize];
+    [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[lab]-(50)-|"
+                                                               options:0 metrics:nil
+                                                                 views:@{@"lab":previousLab}]];
+    
 }
 
-- (void)saveToDatabase
+- (void)saveToDatabase:(NSString*)databaseFileName
 {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
     //create database if it does not exists
-    FMDatabase *aboutMeDB = [FMDatabase databaseWithPath:[appDelegate getFullPathForFileInDocDir:AboutMeDatabaseFileName]];
+    FMDatabase *aboutMeDB = [FMDatabase databaseWithPath:[appDelegate getFullPathForFileInDocDir:databaseFileName]];
     
     //open database
     if (![aboutMeDB open]) {
@@ -139,12 +200,12 @@
     [aboutMeDB close];
 }
 
-- (BOOL)loadDataFromDatabase
+- (BOOL)loadDataFromDatabase:(NSString*)databaseFileName
 {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
     //create database if it does not exists
-    FMDatabase *aboutMeDB = [FMDatabase databaseWithPath:[appDelegate getFullPathForFileInDocDir:AboutMeDatabaseFileName]];
+    FMDatabase *aboutMeDB = [FMDatabase databaseWithPath:[appDelegate getFullPathForFileInDocDir:databaseFileName]];
     
     //open database
     if (![aboutMeDB open]) {

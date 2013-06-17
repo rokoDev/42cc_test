@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FMDatabase.h"
 
 @interface AboutMeViewController : UIViewController
 
@@ -21,7 +20,7 @@
 
 - (void)createNewUserData;
 - (void)placeUI;
-- (void)saveToDatabase;
-- (BOOL)loadDataFromDatabase;
+- (void)saveToDatabase:(NSString*)databaseFileName;
+- (BOOL)loadDataFromDatabase:(NSString*)databaseFileName;
 
 @end

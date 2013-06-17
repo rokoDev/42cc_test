@@ -15,8 +15,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        //[self setBackgroundColor:<#(UIColor *)#>:[UIColor whiteColor]];
-        NSLog(@"init MyScrollView");
     }
     return self;
 }
@@ -33,18 +31,16 @@
 - (void)adjustContentSize
 {
     NSLog(@"adjustContentSize");
-    CGRect rect = CGRectZero;
+    CGRect rect = self.frame;//CGRectZero;
     
     for(UIView * vv in [self subviews])
     {
         rect = CGRectUnion(rect, vv.frame);
     }
-    //[self setFrame:CGRectMake(0, 0, 640, 960)];
     [self setContentSize:CGSizeMake(rect.size.width, rect.size.height)];
-    //[self setContentInset:UIEdgeInsetsMake(0, 0, 100, 0)];
     
-    self.contentInset=UIEdgeInsetsMake(30.0,0.0,35.0,0.0);
-    self.scrollIndicatorInsets=UIEdgeInsetsMake(30.0,0.0,35.0,0.0);
+    self.contentInset=UIEdgeInsetsMake(0.0,0.0,20.0,0.0);
+    self.scrollIndicatorInsets=UIEdgeInsetsMake(0.0,0.0,20.0,0.0);
 }
 
 @end
