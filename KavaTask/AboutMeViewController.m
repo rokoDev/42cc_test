@@ -7,7 +7,6 @@
 //
 
 #import "AboutMeViewController.h"
-#import "MyScrollView.h"
 #import "AppDelegate.h"
 #import "FMDatabase.h"
 
@@ -34,7 +33,7 @@
     
     CGRect fullScreenRect=[[UIScreen mainScreen] applicationFrame];
     fullScreenRect.origin = CGPointZero;
-    UIScrollView *sv = [[MyScrollView alloc] initWithFrame:fullScreenRect];
+    UIScrollView *sv = [[UIScrollView alloc] initWithFrame:fullScreenRect];
     self.scrollView = sv;
     [[self mainView] addSubview:self.scrollView];
     
@@ -170,44 +169,6 @@
                                  KeyField: MyIdInDatabase};
     
     [appDelegate saveToDatabase:savingInfo];
-    
-//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//    
-//    //create database if it does not exists
-//    FMDatabase *aboutMeDB = [FMDatabase databaseWithPath:[appDelegate getFullPathForFileInDocDir:databaseFileName]];
-//    
-//    //open database
-//    if (![aboutMeDB open]) {
-//        return;
-//    }
-//    
-//    //create table if it does not exists
-//    NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('%@' TEXT UNIQUE, '%@' BLOB, '%@' BLOB)", AboutMeTableName, KeyField, PhotoField, InfoField];
-//    if (![aboutMeDB executeUpdate:sql]) {
-//        NSError *error = [aboutMeDB lastError];
-//        NSLog(@"Error: %@ code: %ld", error.localizedDescription, (long)error.code);
-//        //[appDelegate showErrorAlert:error];
-//        return;
-//    }
-//    
-//    //save data to the database
-//    sql = [NSString stringWithFormat:@"INSERT INTO %@ ('%@', '%@', '%@') VALUES (?, ?, ?)", AboutMeTableName, KeyField, PhotoField, InfoField];
-//    NSData *photoData = UIImagePNGRepresentation(self.imageView.image);
-//    NSData *infoData = [NSPropertyListSerialization dataWithPropertyList:self.userInfo
-//                                                                  format:NSPropertyListBinaryFormat_v1_0
-//                                                                 options:0
-//                                                                   error:NULL];
-//    if (![aboutMeDB executeUpdate:sql, MyIdInDatabase, photoData, infoData]) {
-//        NSError *error = [aboutMeDB lastError];
-//        NSLog(@"Error: %@ code: %ld", error.localizedDescription, (long)error.code);
-//        //[appDelegate showErrorAlert:error];
-//        return;
-//    }
-//    
-//    NSLog(@"data has been saved to database");
-//    
-//    //close database
-//    [aboutMeDB close];
 }
 
 - (BOOL)loadDataFromDatabase:(NSString*)databaseFileName
@@ -227,39 +188,6 @@
     }
     
     return retVal;
-    
-//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//    
-//    //create database if it does not exists
-//    FMDatabase *aboutMeDB = [FMDatabase databaseWithPath:[appDelegate getFullPathForFileInDocDir:databaseFileName]];
-//    
-//    //open database
-//    if (![aboutMeDB open]) {
-//        return NO;
-//    }
-//    
-//    //read database
-//    NSString* sqliteQuery = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ = '%@'", AboutMeTableName, KeyField, MyIdInDatabase];
-//    FMResultSet *result = [aboutMeDB executeQuery:sqliteQuery];
-//    
-//    if ([result next]) {
-//        NSData *photoData = [result dataForColumn:PhotoField];
-//        NSData *infoData = [result dataForColumn:InfoField];
-//        
-//        if (!photoData || !infoData)
-//            return NO;
-//        UIImage *userPhoto = [UIImage imageWithData:photoData];
-//        self.imageView.image = userPhoto;
-//        
-//        NSPropertyListFormat plistFormat;
-//        self.userInfo = [NSPropertyListSerialization propertyListWithData:infoData
-//                                                                  options:0
-//                                                                   format:&plistFormat
-//                                                                    error:NULL];
-//        return YES;
-//    }
-//    else
-//        return NO;
 }
 
 @end

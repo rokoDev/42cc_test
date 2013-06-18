@@ -10,6 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 extern NSString *const AboutMeDatabaseFileName;
+extern NSString *const FacebookDatabaseName;
 extern NSString *const AboutMeTableName;
 extern NSString *const KeyField;
 extern NSString *const PhotoField;

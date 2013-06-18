@@ -12,6 +12,7 @@
 #import "FMDatabase.h"
 
 NSString *const AboutMeDatabaseFileName = @"aboutMeDatabase.db";
+NSString *const FacebookDatabaseName    = @"facebook.db";
 NSString *const AboutMeTableName        = @"aboutMeTable";
 NSString *const KeyField                = @"id";
 NSString *const PhotoField              = @"photo";
@@ -157,10 +158,7 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
             break;
     }
     
-    //[[NSNotificationCenter defaultCenter] postNotificationName:[LoginedViewControllerNotification object:nil];
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:SCSessionStateChangedNotification
-     object:session];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SCSessionStateChangedNotification object:session];
     
     if (error) {
         [self showErrorAlert:error];
@@ -193,6 +191,7 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
         NSError *error = [aboutMeDB lastError];
         NSLog(@"Error: %@ code: %ld", error.localizedDescription, (long)error.code);
         //[self showErrorAlert:error];
+        [aboutMeDB close];
         return;
     }
     
@@ -207,6 +206,7 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
         NSError *error = [aboutMeDB lastError];
         NSLog(@"Error: %@ code: %ld", error.localizedDescription, (long)error.code);
         //[self showErrorAlert:error];
+        [aboutMeDB close];
         return;
     }
     
@@ -235,8 +235,10 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
         NSData *photoData = [result dataForColumn:PhotoField];
         NSData *infoData = [result dataForColumn:InfoField];
         
-        if (!photoData || !infoData)
+        if (!photoData || !infoData) {
+            [aboutMeDB close];
             return NO;
+        }
         UIImage *userPhoto = [UIImage imageWithData:photoData];
         [loadingInfo setObject:userPhoto forKey:PhotoField];
         
@@ -245,10 +247,13 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
                                                                          options:0
                                                                           format:&plistFormat
                                                                            error:NULL] forKey:InfoField];
+        [aboutMeDB close];
         return YES;
     }
-    else
+    else {
+        [aboutMeDB close];
         return NO;
+    }
 }
 
 - (void)deleteFromDatabase:(NSDictionary *)deletingInfo
@@ -265,10 +270,11 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
         
         NSString *sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE %@='%@'", AboutMeTableName, KeyField, [deletingInfo objectForKey:KeyField]];
         
-        if ([aboutMeDB executeUpdate:sql]) {
+        if (![aboutMeDB executeUpdate:sql]) {
             NSError *error = [aboutMeDB lastError];
             NSLog(@"Error: %@ code: %ld", error.localizedDescription, (long)error.code);
             //[self showErrorAlert:error];
+            [aboutMeDB close];
             return;
         }
         

@@ -7,7 +7,7 @@
 //
 
 #import "KavaTaskTests.h"
-//#import <OCMock/OCMock.h>
+#import <OCMock/OCMock.h>
 #import "AboutMeViewController.h"
 #import <UIKit/UIKit.h>
 
@@ -26,9 +26,9 @@
 {
     // Tear-down code here.
     
-    [super tearDown];
-    
     self.appDelegate = nil;
+    
+    [super tearDown];
 }
 
 - (void)testExample

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		18361C2F176F50B9001E5397 /* LoginedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361C2C176F50B9001E5397 /* LoginedViewController.m */; };
 		18361C30176F50B9001E5397 /* GoingToLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361C2E176F50B9001E5397 /* GoingToLoginViewController.m */; };
+		1873129C17706499006AEE97 /* LoginedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361C2C176F50B9001E5397 /* LoginedViewController.m */; };
+		1873129D1770649D006AEE97 /* GoingToLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361C2E176F50B9001E5397 /* GoingToLoginViewController.m */; };
+		187312A01770656B006AEE97 /* LoginedViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1873129F1770656B006AEE97 /* LoginedViewControllerTest.m */; };
+		187312A31770684C006AEE97 /* GoingToLoginViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 187312A21770684C006AEE97 /* GoingToLoginViewControllerTest.m */; };
 		1891C1B6176A27F300D18C61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B5176A27F300D18C61 /* UIKit.framework */; };
 		1891C1B8176A27F300D18C61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B7176A27F300D18C61 /* Foundation.framework */; };
 		1891C1BA176A27F300D18C61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B9176A27F300D18C61 /* CoreGraphics.framework */; };
@@ -24,12 +28,10 @@
 		1891C1DC176A27F400D18C61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B7176A27F300D18C61 /* Foundation.framework */; };
 		1891C1E4176A27F400D18C61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1E2176A27F400D18C61 /* InfoPlist.strings */; };
 		1891C1E7176A27F400D18C61 /* KavaTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891C1E6176A27F400D18C61 /* KavaTaskTests.m */; };
-		18CE361A176EF8E4000D035A /* MyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68E2176B406400BC9C0F /* MyScrollView.m */; };
 		18CE361F176EFA91000D035A /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */; };
 		18CE3620176F072B000D035A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B9176A27F300D18C61 /* CoreGraphics.framework */; };
 		18FD68DA176B038F00BC9C0F /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */; };
 		18FD68DD176B0F7900BC9C0F /* userface.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FD68DC176B0F7900BC9C0F /* userface.png */; };
-		18FD68E3176B406400BC9C0F /* MyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68E2176B406400BC9C0F /* MyScrollView.m */; };
 		CFF21C9264384691AA1CB0B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53916CB2A70E4D2DB4D7F29A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,10 @@
 		18361C2C176F50B9001E5397 /* LoginedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginedViewController.m; sourceTree = "<group>"; };
 		18361C2D176F50B9001E5397 /* GoingToLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoingToLoginViewController.h; sourceTree = "<group>"; };
 		18361C2E176F50B9001E5397 /* GoingToLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoingToLoginViewController.m; sourceTree = "<group>"; };
+		1873129E1770656B006AEE97 /* LoginedViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginedViewControllerTest.h; sourceTree = "<group>"; };
+		1873129F1770656B006AEE97 /* LoginedViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginedViewControllerTest.m; sourceTree = "<group>"; };
+		187312A11770684C006AEE97 /* GoingToLoginViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoingToLoginViewControllerTest.h; sourceTree = "<group>"; };
+		187312A21770684C006AEE97 /* GoingToLoginViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoingToLoginViewControllerTest.m; sourceTree = "<group>"; };
 		1891C1B2176A27F300D18C61 /* KavaTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KavaTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1891C1B5176A27F300D18C61 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1891C1B7176A27F300D18C61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,8 +77,6 @@
 		18FD68D8176B038F00BC9C0F /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
 		18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeViewController.m; sourceTree = "<group>"; };
 		18FD68DC176B0F7900BC9C0F /* userface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userface.png; sourceTree = "<group>"; };
-		18FD68E1176B406400BC9C0F /* MyScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScrollView.h; sourceTree = "<group>"; };
-		18FD68E2176B406400BC9C0F /* MyScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScrollView.m; sourceTree = "<group>"; };
 		45BD6D9FE4A641D5830E9D5C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		53916CB2A70E4D2DB4D7F29A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -143,8 +147,6 @@
 				1891C1CD176A27F300D18C61 /* MainStoryboard.storyboard */,
 				18FD68D8176B038F00BC9C0F /* AboutMeViewController.h */,
 				18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */,
-				18FD68E1176B406400BC9C0F /* MyScrollView.h */,
-				18FD68E2176B406400BC9C0F /* MyScrollView.m */,
 				18361C2B176F50B9001E5397 /* LoginedViewController.h */,
 				18361C2C176F50B9001E5397 /* LoginedViewController.m */,
 				18361C2D176F50B9001E5397 /* GoingToLoginViewController.h */,
@@ -174,6 +176,10 @@
 			children = (
 				1891C1E5176A27F400D18C61 /* KavaTaskTests.h */,
 				1891C1E6176A27F400D18C61 /* KavaTaskTests.m */,
+				1873129E1770656B006AEE97 /* LoginedViewControllerTest.h */,
+				1873129F1770656B006AEE97 /* LoginedViewControllerTest.m */,
+				187312A11770684C006AEE97 /* GoingToLoginViewControllerTest.h */,
+				187312A21770684C006AEE97 /* GoingToLoginViewControllerTest.m */,
 				1891C1E0176A27F400D18C61 /* Supporting Files */,
 			);
 			path = KavaTaskTests;
@@ -340,7 +346,6 @@
 				1891C1C2176A27F300D18C61 /* main.m in Sources */,
 				1891C1C6176A27F300D18C61 /* AppDelegate.m in Sources */,
 				18FD68DA176B038F00BC9C0F /* AboutMeViewController.m in Sources */,
-				18FD68E3176B406400BC9C0F /* MyScrollView.m in Sources */,
 				18361C2F176F50B9001E5397 /* LoginedViewController.m in Sources */,
 				18361C30176F50B9001E5397 /* GoingToLoginViewController.m in Sources */,
 			);
@@ -351,8 +356,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1891C1E7176A27F400D18C61 /* KavaTaskTests.m in Sources */,
-				18CE361A176EF8E4000D035A /* MyScrollView.m in Sources */,
 				18CE361F176EFA91000D035A /* AboutMeViewController.m in Sources */,
+				1873129C17706499006AEE97 /* LoginedViewController.m in Sources */,
+				1873129D1770649D006AEE97 /* GoingToLoginViewController.m in Sources */,
+				187312A01770656B006AEE97 /* LoginedViewControllerTest.m in Sources */,
+				187312A31770684C006AEE97 /* GoingToLoginViewControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

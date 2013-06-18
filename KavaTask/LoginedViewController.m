@@ -21,6 +21,7 @@
 
 - (void)dealloc
 {
+    NSLog(@"LoginedViewController: dealloc");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -83,7 +84,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
     NSString *userAccessToken = FBSession.activeSession.accessTokenData.accessToken;
-    NSDictionary *deletingInfo = @{DBFileNameKey: AboutMeDatabaseFileName,
+    NSDictionary *deletingInfo = @{DBFileNameKey: FacebookDatabaseName,
                                    KeyField: userAccessToken};
     [appDelegate deleteFromDatabase:deletingInfo];
     //[appDelegate deleteRowForKey:FBSession.activeSession.accessTokenData.accessToken];
@@ -93,13 +94,13 @@
 
 - (void)populateUserDetails
 {
+    [self setDefaultUserData];
     if (FBSession.activeSession.isOpen) {
-        if ([self loadDataFromDatabase:AboutMeDatabaseFileName]) {
+        if ([self loadDataFromDatabase:FacebookDatabaseName]) {
             [self placeUI];
         }
         else {
-            [self setDefaultUserData];
-            [self ensureImageViewContentMode];
+//            [self setDefaultUserData];
             [FBRequestConnection startWithGraphPath:@"me"
                                          parameters:[NSDictionary dictionaryWithObject:@"picture.type(large),id,gender,first_name,last_name,email, birthday,name,username,locale,link,timezone,updated_time,verified"
                                                                                 forKey:@"fields"]
@@ -110,7 +111,7 @@
                                           
                                           self.userInfo = result;
                                           
-                                          //[self saveToDatabase:AboutMeDatabaseFileName];
+                                          //[self saveToDatabase:FacebookDatabaseName];
                                           
                                           NSURL *url = [NSURL URLWithString:[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]];
                                           
@@ -127,7 +128,8 @@
                                                   self.imageView.image = userImage;
                                                   [self ensureImageViewContentMode];
                                                   
-                                                  [self saveToDatabase:AboutMeDatabaseFileName];
+                                                  [self saveToDatabase:FacebookDatabaseName];
+                                                  [self placeUI];
                                               });
                                           });
                                       }
@@ -171,6 +173,7 @@
     //NSString *blankImageName = @"FacebookSDKResources.bundle/FBProfilePictureView/images/fb_blank_profile_square.png";
     //[NSString stringWithFormat:@"FacebookSDKResources.bundle/FBProfilePictureView/images/fb_blank_profile_%@.png", 1 ? @"square" : @"portrait"];
     self.imageView.image = [UIImage imageNamed:DefaultUserImagePath];
+    [self ensureImageViewContentMode];
     
     self.userInfo = nil;
     
@@ -181,31 +184,20 @@
 {
     UIScrollView *sv = self.scrollView;
     
-    sv.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    sv.scrollEnabled = YES;
-    sv.alwaysBounceVertical = YES;
-    
-    
-    UIImageView *iv = self.imageView;
-    
-    
-    iv.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    
     UILabel* previousLab = nil;
     for (id key in self.userInfo) {
+        if (![[self.userInfo objectForKey:key] isKindOfClass:[NSString class]]) {
+            NSLog(@"%@ is %@", key, NSStringFromClass([[self.userInfo objectForKey:key] class]));
+            continue;
+        }
         UILabel *fieldName = [UILabel new];
         fieldName.translatesAutoresizingMaskIntoConstraints = NO;
         fieldName.text = [NSString stringWithFormat:@"%@:", key];
         [sv addSubview:fieldName];
-        [sv addConstraint:[NSLayoutConstraint constraintWithItem:fieldName
-                                                       attribute:NSLayoutAttributeRight
-                                                       relatedBy:NSLayoutRelationEqual
-                                                          toItem:sv
-                                                       attribute:NSLayoutAttributeCenterX
-                                                      multiplier:1.0
-                                                        constant:0]];
+
+        [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[lab]"
+                                                                   options:0 metrics:nil
+                                                                     views:@{@"lab":fieldName}]];
         if (!previousLab) { // first one, pin to top
             [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(50)-[lab]"
                                                                        options:0 metrics:nil
@@ -220,7 +212,7 @@
         content.translatesAutoresizingMaskIntoConstraints = NO;
         content.text = [self.userInfo objectForKey:key];
         [sv addSubview:content];
-        [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[fieldName]-[lab]"
+        [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[fieldName]-[lab]-(>=0)-|"
                                                                    options:0 metrics:nil
                                                                      views:@{@"lab":content,@"fieldName":fieldName}]];
         
@@ -272,6 +264,7 @@
     
     if (retVal) {
         self.imageView.image = [loadingInfo objectForKey:PhotoField];
+        [self ensureImageViewContentMode];
         self.userInfo = [loadingInfo objectForKey:InfoField];
     }
     

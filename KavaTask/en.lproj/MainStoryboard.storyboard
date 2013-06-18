@@ -14,11 +14,11 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1c-G2-bF8">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="EAQ-a4-eRr"/>
-                                    <constraint firstAttribute="width" constant="75" id="Kkx-YG-SBi"/>
+                                    <constraint firstAttribute="width" constant="75" id="NSd-Xn-ulu"/>
+                                    <constraint firstAttribute="height" constant="75" id="u1N-gb-47o"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oVD-qe-tmj"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oVD-qe-tmj"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETp-qK-3me">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Logout">
@@ -35,19 +35,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ETp-qK-3me" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="6p2-7z-cuy"/>
+                            <constraint firstItem="ETp-qK-3me" firstAttribute="centerY" secondItem="s1c-G2-bF8" secondAttribute="centerY" type="default" id="0Ms-dv-xiA"/>
+                            <constraint firstItem="s1c-G2-bF8" firstAttribute="leading" secondItem="ETp-qK-3me" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="5us-fy-0V1"/>
                             <constraint firstItem="oVD-qe-tmj" firstAttribute="leading" secondItem="2QL-84-gzU" secondAttribute="leading" type="default" id="Ffm-wZ-xka"/>
                             <constraint firstItem="oVD-qe-tmj" firstAttribute="top" secondItem="2QL-84-gzU" secondAttribute="top" constant="130" id="XjI-Oy-z7v"/>
                             <constraint firstItem="oVD-qe-tmj" firstAttribute="trailing" secondItem="2QL-84-gzU" secondAttribute="trailing" type="default" id="bdw-2Y-Mal"/>
-                            <constraint firstAttribute="bottom" secondItem="oVD-qe-tmj" secondAttribute="bottom" constant="83" id="gXY-mc-tl6"/>
+                            <constraint firstItem="oVD-qe-tmj" firstAttribute="bottom" secondItem="2QL-84-gzU" secondAttribute="bottom" type="default" id="jNN-2W-qc0"/>
                             <constraint firstItem="oVD-qe-tmj" firstAttribute="centerX" secondItem="s1c-G2-bF8" secondAttribute="centerX" type="default" id="m2s-Gh-Ym0"/>
-                            <constraint firstItem="ETp-qK-3me" firstAttribute="leading" secondItem="2QL-84-gzU" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rJb-uQ-FoM"/>
                             <constraint firstItem="s1c-G2-bF8" firstAttribute="top" secondItem="2QL-84-gzU" secondAttribute="top" constant="20" symbolic="YES" type="default" id="rhg-c9-LEl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Z6-aE-fPO"/>
                     <connections>
                         <outlet property="imageView" destination="s1c-G2-bF8" id="JnN-V2-wqz"/>
+                        <outlet property="logoutBtn" destination="ETp-qK-3me" id="DYa-Tx-ROQ"/>
                         <outlet property="scrollView" destination="oVD-qe-tmj" id="xIT-EE-ADT"/>
                         <segue destination="ehq-BG-BD9" kind="modal" identifier="showGoingToLoginVC" animates="NO" id="iEZ-O0-aFn"/>
                     </connections>
@@ -64,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="u1I-Sh-nTJ" kind="relationship" relationship="rootViewController" id="IBU-Ku-C7A"/>
+                        <segue destination="u1I-Sh-nTJ" kind="relationship" relationship="rootViewController" id="5WE-92-zZ7"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejz-wI-NUe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -149,6 +150,7 @@
             <relationships>
                 <relationship kind="action" name="logoutBtnTapped:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="logoutBtn" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
