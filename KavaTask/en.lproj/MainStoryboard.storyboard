@@ -11,45 +11,11 @@
                     <view key="view" contentMode="scaleToFill" id="2QL-84-gzU">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1c-G2-bF8">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="NSd-Xn-ulu"/>
-                                    <constraint firstAttribute="height" constant="75" id="u1N-gb-47o"/>
-                                </constraints>
-                            </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oVD-qe-tmj"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETp-qK-3me">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Logout">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logoutBtnTapped:" destination="u1I-Sh-nTJ" eventType="touchUpInside" id="BFM-Qe-h4I"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ETp-qK-3me" firstAttribute="centerY" secondItem="s1c-G2-bF8" secondAttribute="centerY" type="default" id="0Ms-dv-xiA"/>
-                            <constraint firstItem="s1c-G2-bF8" firstAttribute="leading" secondItem="ETp-qK-3me" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="5us-fy-0V1"/>
-                            <constraint firstItem="oVD-qe-tmj" firstAttribute="leading" secondItem="2QL-84-gzU" secondAttribute="leading" type="default" id="Ffm-wZ-xka"/>
-                            <constraint firstItem="oVD-qe-tmj" firstAttribute="top" secondItem="2QL-84-gzU" secondAttribute="top" constant="130" id="XjI-Oy-z7v"/>
-                            <constraint firstItem="oVD-qe-tmj" firstAttribute="trailing" secondItem="2QL-84-gzU" secondAttribute="trailing" type="default" id="bdw-2Y-Mal"/>
-                            <constraint firstItem="oVD-qe-tmj" firstAttribute="bottom" secondItem="2QL-84-gzU" secondAttribute="bottom" type="default" id="jNN-2W-qc0"/>
-                            <constraint firstItem="oVD-qe-tmj" firstAttribute="centerX" secondItem="s1c-G2-bF8" secondAttribute="centerX" type="default" id="m2s-Gh-Ym0"/>
-                            <constraint firstItem="s1c-G2-bF8" firstAttribute="top" secondItem="2QL-84-gzU" secondAttribute="top" constant="20" symbolic="YES" type="default" id="rhg-c9-LEl"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Z6-aE-fPO"/>
                     <connections>
-                        <outlet property="imageView" destination="s1c-G2-bF8" id="JnN-V2-wqz"/>
-                        <outlet property="logoutBtn" destination="ETp-qK-3me" id="DYa-Tx-ROQ"/>
-                        <outlet property="scrollView" destination="oVD-qe-tmj" id="xIT-EE-ADT"/>
+                        <outlet property="mainView" destination="2QL-84-gzU" id="sJl-Vc-cph"/>
                         <segue destination="ehq-BG-BD9" kind="modal" identifier="showGoingToLoginVC" animates="NO" id="iEZ-O0-aFn"/>
                     </connections>
                 </viewController>
@@ -151,6 +117,7 @@
                 <relationship kind="action" name="logoutBtnTapped:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="logoutBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mainView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>

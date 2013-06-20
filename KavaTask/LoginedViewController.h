@@ -8,17 +8,28 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "RXMLElement.h"
 
-@interface LoginedViewController : UIViewController
+@interface LoginedViewController : UIViewController<UITextFieldDelegate, UIPickerViewDelegate>
 
+@property (weak, nonatomic) UIImageView *imageView;
+@property (weak, nonatomic) UIScrollView *scrollView;
+@property (weak, nonatomic) UIButton *logoutBtn;
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIButton *logoutBtn;
+- (void)logoutBtnTapped:(id)sender;
 
-- (IBAction)logoutBtnTapped:(id)sender;
+@property (strong, nonatomic) IBOutlet UIView *mainView;
 
-@property (strong, nonatomic) NSDictionary *userInfo;
+@property (strong, nonatomic) NSMutableDictionary *userInfo;
+@property (strong, nonatomic) NSMutableDictionary *namesOfTheTextFields;
+@property (strong, nonatomic) UIToolbar *keyboardToolbar;
+@property (strong, nonatomic) UIToolbar *keyboardToolbarForUpdatedTime;
+
+@property (weak, nonatomic) UITextField *activeField;
+@property (assign, nonatomic) float keyboardHeight;
+@property (strong, nonatomic) NSDictionary *localesDict;
+@property (strong, nonatomic) NSArray *sortedLocalesArray;
+
 
 - (void)setDefaultUserData;
 - (void)placeUI;
@@ -27,6 +38,8 @@
 - (void)sessionStateChanged:(NSNotification*)notification;
 - (void)ensureImageViewContentMode;
 
-
+- (void)textFieldDoneEditing:(id)sender;
+- (void)birthdayPickerValChanged:(id)sender;
+- (void)updatedTimePickerValChanged:(id)sender;
 
 @end

@@ -16,6 +16,7 @@ extern NSString *const KeyField;
 extern NSString *const PhotoField;
 extern NSString *const InfoField;
 extern NSString *const MyIdInDatabase;
+extern NSString *const FacebookLocalesURL;
 
 extern NSString *const DBFileNameKey;
 

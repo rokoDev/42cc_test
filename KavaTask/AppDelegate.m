@@ -19,6 +19,7 @@ NSString *const PhotoField              = @"photo";
 NSString *const InfoField               = @"info";
 NSString *const MyIdInDatabase          = @"me";
 NSString *const DBFileNameKey           = @"databaseFileName";
+NSString *const FacebookLocalesURL      = @"http://www.facebook.com/translations/FacebookLocales.xml";
 
 NSString *const SCSessionStateChangedNotification = @"com.rokoprogs.KavaTask:SCSessionStateChangedNotification";
 NSString *const LoginedViewControllerNotification = @"com.rokoprogs.KavaTask:loginedVCDidAppear";
@@ -196,7 +197,7 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
     }
     
     //save data to the database
-    sql = [NSString stringWithFormat:@"INSERT INTO %@ ('%@', '%@', '%@') VALUES (?, ?, ?)", AboutMeTableName, KeyField, PhotoField, InfoField];
+    sql = [NSString stringWithFormat:@"INSERT OR REPLACE INTO %@ ('%@', '%@', '%@') VALUES (?, ?, ?)", AboutMeTableName, KeyField, PhotoField, InfoField];
     NSData *photoData = UIImagePNGRepresentation((UIImage*)[savingInfo objectForKey:PhotoField]);
     NSData *infoData = [NSPropertyListSerialization dataWithPropertyList:(NSDictionary*)[savingInfo objectForKey:InfoField]
                                                                   format:NSPropertyListBinaryFormat_v1_0
@@ -243,10 +244,10 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
         [loadingInfo setObject:userPhoto forKey:PhotoField];
         
         NSPropertyListFormat plistFormat;
-        [loadingInfo setObject:[NSPropertyListSerialization propertyListWithData:infoData
-                                                                         options:0
-                                                                          format:&plistFormat
-                                                                           error:NULL] forKey:InfoField];
+        [loadingInfo setObject:[NSMutableDictionary dictionaryWithDictionary:[NSPropertyListSerialization propertyListWithData:infoData
+                                                                                                                       options:0
+                                                                                                                        format:&plistFormat
+                                                                                                                         error:NULL]] forKey:InfoField];
         [aboutMeDB close];
         return YES;
     }

@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		18361C2F176F50B9001E5397 /* LoginedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361C2C176F50B9001E5397 /* LoginedViewController.m */; };
 		18361C30176F50B9001E5397 /* GoingToLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361C2E176F50B9001E5397 /* GoingToLoginViewController.m */; };
-		1873129C17706499006AEE97 /* LoginedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361C2C176F50B9001E5397 /* LoginedViewController.m */; };
 		1873129D1770649D006AEE97 /* GoingToLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361C2E176F50B9001E5397 /* GoingToLoginViewController.m */; };
 		187312A01770656B006AEE97 /* LoginedViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1873129F1770656B006AEE97 /* LoginedViewControllerTest.m */; };
 		187312A31770684C006AEE97 /* GoingToLoginViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 187312A21770684C006AEE97 /* GoingToLoginViewControllerTest.m */; };
+		187312AF1770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 187312AE1770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.m */; };
+		187312B01770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 187312AE1770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.m */; };
+		187312B31771A6C6006AEE97 /* DateField.m in Sources */ = {isa = PBXBuildFile; fileRef = 187312B21771A6C6006AEE97 /* DateField.m */; };
+		187312B41771A6C6006AEE97 /* DateField.m in Sources */ = {isa = PBXBuildFile; fileRef = 187312B21771A6C6006AEE97 /* DateField.m */; };
 		1891C1B6176A27F300D18C61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B5176A27F300D18C61 /* UIKit.framework */; };
 		1891C1B8176A27F300D18C61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B7176A27F300D18C61 /* Foundation.framework */; };
 		1891C1BA176A27F300D18C61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B9176A27F300D18C61 /* CoreGraphics.framework */; };
@@ -30,6 +33,9 @@
 		1891C1E7176A27F400D18C61 /* KavaTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891C1E6176A27F400D18C61 /* KavaTaskTests.m */; };
 		18CE361F176EFA91000D035A /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */; };
 		18CE3620176F072B000D035A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B9176A27F300D18C61 /* CoreGraphics.framework */; };
+		18FD42FD17722642009BD3DE /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD42FC17722642009BD3DE /* NSString+Validation.m */; };
+		18FD42FE17722642009BD3DE /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD42FC17722642009BD3DE /* NSString+Validation.m */; };
+		18FD42FF17726DD8009BD3DE /* LoginedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361C2C176F50B9001E5397 /* LoginedViewController.m */; };
 		18FD68DA176B038F00BC9C0F /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */; };
 		18FD68DD176B0F7900BC9C0F /* userface.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FD68DC176B0F7900BC9C0F /* userface.png */; };
 		CFF21C9264384691AA1CB0B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53916CB2A70E4D2DB4D7F29A /* libPods.a */; };
@@ -54,6 +60,10 @@
 		1873129F1770656B006AEE97 /* LoginedViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginedViewControllerTest.m; sourceTree = "<group>"; };
 		187312A11770684C006AEE97 /* GoingToLoginViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoingToLoginViewControllerTest.h; sourceTree = "<group>"; };
 		187312A21770684C006AEE97 /* GoingToLoginViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoingToLoginViewControllerTest.m; sourceTree = "<group>"; };
+		187312AD1770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoopThroughAllSubviewsWithBlock.h"; sourceTree = "<group>"; };
+		187312AE1770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoopThroughAllSubviewsWithBlock.m"; sourceTree = "<group>"; };
+		187312B11771A6C5006AEE97 /* DateField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateField.h; sourceTree = "<group>"; };
+		187312B21771A6C6006AEE97 /* DateField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateField.m; sourceTree = "<group>"; };
 		1891C1B2176A27F300D18C61 /* KavaTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KavaTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1891C1B5176A27F300D18C61 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1891C1B7176A27F300D18C61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,6 +84,8 @@
 		1891C1E3176A27F400D18C61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1891C1E5176A27F400D18C61 /* KavaTaskTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KavaTaskTests.h; sourceTree = "<group>"; };
 		1891C1E6176A27F400D18C61 /* KavaTaskTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KavaTaskTests.m; sourceTree = "<group>"; };
+		18FD42FB17722642009BD3DE /* NSString+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validation.h"; sourceTree = "<group>"; };
+		18FD42FC17722642009BD3DE /* NSString+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validation.m"; sourceTree = "<group>"; };
 		18FD68D8176B038F00BC9C0F /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
 		18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeViewController.m; sourceTree = "<group>"; };
 		18FD68DC176B0F7900BC9C0F /* userface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userface.png; sourceTree = "<group>"; };
@@ -144,11 +156,17 @@
 			children = (
 				1891C1C4176A27F300D18C61 /* AppDelegate.h */,
 				1891C1C5176A27F300D18C61 /* AppDelegate.m */,
+				18FD42FB17722642009BD3DE /* NSString+Validation.h */,
+				18FD42FC17722642009BD3DE /* NSString+Validation.m */,
+				187312AD1770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.h */,
+				187312AE1770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.m */,
 				1891C1CD176A27F300D18C61 /* MainStoryboard.storyboard */,
 				18FD68D8176B038F00BC9C0F /* AboutMeViewController.h */,
 				18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */,
 				18361C2B176F50B9001E5397 /* LoginedViewController.h */,
 				18361C2C176F50B9001E5397 /* LoginedViewController.m */,
+				187312B11771A6C5006AEE97 /* DateField.h */,
+				187312B21771A6C6006AEE97 /* DateField.m */,
 				18361C2D176F50B9001E5397 /* GoingToLoginViewController.h */,
 				18361C2E176F50B9001E5397 /* GoingToLoginViewController.m */,
 				1891C1BC176A27F300D18C61 /* Supporting Files */,
@@ -348,6 +366,9 @@
 				18FD68DA176B038F00BC9C0F /* AboutMeViewController.m in Sources */,
 				18361C2F176F50B9001E5397 /* LoginedViewController.m in Sources */,
 				18361C30176F50B9001E5397 /* GoingToLoginViewController.m in Sources */,
+				187312AF1770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.m in Sources */,
+				187312B31771A6C6006AEE97 /* DateField.m in Sources */,
+				18FD42FD17722642009BD3DE /* NSString+Validation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,10 +378,13 @@
 			files = (
 				1891C1E7176A27F400D18C61 /* KavaTaskTests.m in Sources */,
 				18CE361F176EFA91000D035A /* AboutMeViewController.m in Sources */,
-				1873129C17706499006AEE97 /* LoginedViewController.m in Sources */,
 				1873129D1770649D006AEE97 /* GoingToLoginViewController.m in Sources */,
 				187312A01770656B006AEE97 /* LoginedViewControllerTest.m in Sources */,
 				187312A31770684C006AEE97 /* GoingToLoginViewControllerTest.m in Sources */,
+				187312B01770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.m in Sources */,
+				187312B41771A6C6006AEE97 /* DateField.m in Sources */,
+				18FD42FE17722642009BD3DE /* NSString+Validation.m in Sources */,
+				18FD42FF17726DD8009BD3DE /* LoginedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,8 +488,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KavaTask/KavaTask-Prefix.pch";
-				HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}";
+				HEADER_SEARCH_PATHS = "${PODS_PUBLIC_HEADERS_SEARCH_PATHS}";
 				INFOPLIST_FILE = "KavaTask/KavaTask-Info.plist";
+				PODS_PUBLIC_HEADERS_SEARCH_PATHS = "\"${PODS_ROOT}/Headers\" \"${PODS_ROOT}/Headers/FMDB\" \"${PODS_ROOT}/Headers/Facebook-iOS-SDK\" \"${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK\" \"${PODS_ROOT}/Headers/OCMock\" \"${PODS_ROOT}/Headers/RaptureXML\" \"${PODS_ROOT}/Headers/Reachability\" \"$(SDKROOT)/usr/include/libxml2\" ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -477,8 +502,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KavaTask/KavaTask-Prefix.pch";
-				HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}";
+				HEADER_SEARCH_PATHS = "${PODS_PUBLIC_HEADERS_SEARCH_PATHS}";
 				INFOPLIST_FILE = "KavaTask/KavaTask-Info.plist";
+				PODS_PUBLIC_HEADERS_SEARCH_PATHS = "\"${PODS_ROOT}/Headers\" \"${PODS_ROOT}/Headers/FMDB\" \"${PODS_ROOT}/Headers/Facebook-iOS-SDK\" \"${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK\" \"${PODS_ROOT}/Headers/OCMock\" \"${PODS_ROOT}/Headers/RaptureXML\" \"${PODS_ROOT}/Headers/Reachability\" \"$(SDKROOT)/usr/include/libxml2\" ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
