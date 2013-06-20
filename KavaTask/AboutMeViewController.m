@@ -28,6 +28,7 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"AboutMeViewController: viewDidLoad");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
@@ -36,6 +37,7 @@
     UIScrollView *sv = [[UIScrollView alloc] initWithFrame:fullScreenRect];
     self.scrollView = sv;
     [[self mainView] addSubview:self.scrollView];
+    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     
     UIImageView *iv  = [[UIImageView alloc] initWithFrame:CGRectZero];
     self.imageView = iv;
@@ -50,6 +52,13 @@
     else {
         NSLog(@"data has been successfully loaded form database");
     }
+    [self placeUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
     [self placeUI];
 }
 
@@ -77,6 +86,15 @@
 - (void)placeUI
 {
     UIScrollView *sv = self.scrollView;
+    [sv removeConstraints:sv.constraints];
+    [self.view removeConstraints:self.view.constraints];
+    for (id someSubview in [sv subviews]) {
+        if ([someSubview isKindOfClass:[UILabel class]])
+        {
+            [someSubview removeFromSuperview];
+        }
+    }
+    [sv setContentOffset:CGPointZero];
     
     sv.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addConstraints:
@@ -93,8 +111,6 @@
     
     
     UIImageView *iv = self.imageView;
-    
-    [sv addSubview:iv];
     
     iv.translatesAutoresizingMaskIntoConstraints = NO;
     [sv addConstraint:[NSLayoutConstraint constraintWithItem:iv

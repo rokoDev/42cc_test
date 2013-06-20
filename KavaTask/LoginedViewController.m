@@ -140,6 +140,7 @@
 
 - (void)didReceiveMemoryWarning
 {
+    //NSLog(@"didRecieveMemoryWarning");
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -288,6 +289,8 @@
 - (void)placeUI
 {
     [self.namesOfTheTextFields removeAllObjects];
+    [self.scrollView removeConstraints:self.scrollView.constraints];
+    [self.view removeConstraints:self.view.constraints];
     for (id someSubview in [self.scrollView subviews]) {
         if ([someSubview isKindOfClass:[UITextField class]] || [someSubview isKindOfClass:[UILabel class]])
         {
@@ -295,6 +298,8 @@
         }
     }
     UIScrollView *sv = self.scrollView;
+    [sv setContentOffset:CGPointZero];
+    NSLog(@"sv = %@", sv);
     
     sv.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addConstraints:

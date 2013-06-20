@@ -68,11 +68,17 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
 - (void)showLoginView
 {
     NSLog(@"AppDelegate: showLoginView");
-    UINavigationController *navController = (UINavigationController*)self.window.rootViewController;
-    //    LoginedViewController *loginedVC = (LoginedViewController*)[navController visibleViewController];
-    //    [loginedVC performSegueWithIdentifier:@"showGoingToLoginVC" sender:loginedVC];
     
-    //UINavigationController *navController = (UINavigationController*)self.window.rootViewController;
+    UITabBarController *tabController = (UITabBarController*)self.window.rootViewController;
+    UIViewController *selectedTab = [tabController selectedViewController];
+    
+    if (![selectedTab isKindOfClass:[UINavigationController class]]) {
+        [tabController setSelectedIndex:0];
+        selectedTab = [tabController selectedViewController];
+    }
+    
+    UINavigationController *navController = (UINavigationController*)[tabController selectedViewController];
+    
     
     UIViewController *topViewController = [navController visibleViewController];
     
@@ -130,8 +136,9 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
             NSLog(@"sessionStateChanged: FBSessionStateOpen");
             //NSLog(@"access token = %@", session.accessTokenData.accessToken);
             //NSLog(@"access token = %@", FBSession.activeSession.accessTokenData.accessToken);
+            UITabBarController *tabController = (UITabBarController*)self.window.rootViewController;
             
-            UINavigationController *navController = (UINavigationController*)self.window.rootViewController;
+            UINavigationController *navController = (UINavigationController*)[tabController selectedViewController];
             
             UIViewController *topViewController = [navController visibleViewController];
             
@@ -147,8 +154,11 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
             // Once the user has logged in, we want them to
             // be looking at the root view.
             
-            [(UINavigationController*)self.window.rootViewController popToRootViewControllerAnimated:NO];
+            UITabBarController *tabController = (UITabBarController*)self.window.rootViewController;
             
+            UINavigationController *navController = (UINavigationController*)[tabController selectedViewController];
+            
+            [navController popToRootViewControllerAnimated:NO];
             
             [FBSession.activeSession closeAndClearTokenInformation];
             

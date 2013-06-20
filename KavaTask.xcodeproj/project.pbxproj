@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18361C2F176F50B9001E5397 /* LoginedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361C2C176F50B9001E5397 /* LoginedViewController.m */; };
 		18361C30176F50B9001E5397 /* GoingToLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361C2E176F50B9001E5397 /* GoingToLoginViewController.m */; };
+		184EE56B177342AC002947D6 /* TabControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EE56A177342AC002947D6 /* TabControllerTest.m */; };
 		1873129D1770649D006AEE97 /* GoingToLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361C2E176F50B9001E5397 /* GoingToLoginViewController.m */; };
 		187312A01770656B006AEE97 /* LoginedViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1873129F1770656B006AEE97 /* LoginedViewControllerTest.m */; };
 		187312A31770684C006AEE97 /* GoingToLoginViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 187312A21770684C006AEE97 /* GoingToLoginViewControllerTest.m */; };
@@ -56,6 +57,8 @@
 		18361C2C176F50B9001E5397 /* LoginedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginedViewController.m; sourceTree = "<group>"; };
 		18361C2D176F50B9001E5397 /* GoingToLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoingToLoginViewController.h; sourceTree = "<group>"; };
 		18361C2E176F50B9001E5397 /* GoingToLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoingToLoginViewController.m; sourceTree = "<group>"; };
+		184EE569177342AC002947D6 /* TabControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabControllerTest.h; sourceTree = "<group>"; };
+		184EE56A177342AC002947D6 /* TabControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabControllerTest.m; sourceTree = "<group>"; };
 		1873129E1770656B006AEE97 /* LoginedViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginedViewControllerTest.h; sourceTree = "<group>"; };
 		1873129F1770656B006AEE97 /* LoginedViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginedViewControllerTest.m; sourceTree = "<group>"; };
 		187312A11770684C006AEE97 /* GoingToLoginViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoingToLoginViewControllerTest.h; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 				1873129F1770656B006AEE97 /* LoginedViewControllerTest.m */,
 				187312A11770684C006AEE97 /* GoingToLoginViewControllerTest.h */,
 				187312A21770684C006AEE97 /* GoingToLoginViewControllerTest.m */,
+				184EE569177342AC002947D6 /* TabControllerTest.h */,
+				184EE56A177342AC002947D6 /* TabControllerTest.m */,
 				1891C1E0176A27F400D18C61 /* Supporting Files */,
 			);
 			path = KavaTaskTests;
@@ -385,6 +390,7 @@
 				187312B41771A6C6006AEE97 /* DateField.m in Sources */,
 				18FD42FE17722642009BD3DE /* NSString+Validation.m in Sources */,
 				18FD42FF17726DD8009BD3DE /* LoginedViewController.m in Sources */,
+				184EE56B177342AC002947D6 /* TabControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +529,7 @@
 				GCC_PREFIX_HEADER = "KavaTask/KavaTask-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}";
 				INFOPLIST_FILE = "KavaTaskTests/KavaTaskTests-Info.plist";
+				PODS_PUBLIC_HEADERS_SEARCH_PATHS = "\"${PODS_ROOT}/Headers\" \"${PODS_ROOT}/Headers/FMDB\" \"${PODS_ROOT}/Headers/Facebook-iOS-SDK\" \"${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK\" \"${PODS_ROOT}/Headers/OCMock\" \"${PODS_ROOT}/Headers/RaptureXML\" \"${PODS_ROOT}/Headers/Reachability\" \"$(SDKROOT)/usr/include/libxml2\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
