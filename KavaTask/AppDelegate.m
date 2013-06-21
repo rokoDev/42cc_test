@@ -33,6 +33,7 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
     [FBProfilePictureView class];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginedVCDidAppear) name:LoginedViewControllerNotification object:nil];
+    
     return YES;
 }
 							
@@ -115,6 +116,7 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
                             @"email",
                             @"user_birthday",
                             @"user_location",
+                            @"read_friendlists",
                             //@"user_likes",
                             nil];
     [FBSession openActiveSessionWithReadPermissions:permissions//nil
@@ -324,6 +326,7 @@ NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePi
                               delegate:nil
                               cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
                               otherButtonTitles:nil];
+    NSLog(@"%@", error.localizedDescription);
     [alertView show];
 }
 

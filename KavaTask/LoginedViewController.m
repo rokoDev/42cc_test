@@ -147,7 +147,6 @@
 }
 
 - (void)logoutBtnTapped:(id)sender {
-    NSLog(@"logoutBtnTapped");
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
     NSString *userAccessToken = FBSession.activeSession.accessTokenData.accessToken;
@@ -435,7 +434,7 @@
             }
             CASE(@"locale") {
                 UIPickerView *localePicker = [UIPickerView new];
-                localePicker.frame = CGRectMake(0, 200, 320, 200);
+                //localePicker.frame = CGRectMake(0, 0, 320, 120);
                 localePicker.showsSelectionIndicator = YES;
                 localePicker.delegate = self;
                 int row = 0;
