@@ -131,6 +131,7 @@ const int friendsCountLimit = 8;
     
     
     
+    
     if (indexPath.row < [self.friendList count]) {
         NSDictionary *friend = [self.friendList objectAtIndex:indexPath.row];
         
