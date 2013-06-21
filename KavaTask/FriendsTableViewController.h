@@ -8,13 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FriendsTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
+@interface FriendsTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIPickerViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *friendList;
 @property (strong, nonatomic) IBOutlet UITableView *friendTableView;
 @property (assign, nonatomic) BOOL didLoadFriends;
 
 @property (strong, nonatomic) NSString *nextRequest;
+
+@property (strong, nonatomic) UIPickerView *priorityPicker;
+@property (strong, nonatomic) UIToolbar *keyboardToolbar;
+
+@property (weak, nonatomic) UITextField *activeField;
 
 - (void) requestNextFriendBatch:(NSString*)parameters;
 

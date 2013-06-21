@@ -25,6 +25,8 @@ NSString *const SCSessionStateChangedNotification = @"com.rokoprogs.KavaTask:SCS
 NSString *const LoginedViewControllerNotification = @"com.rokoprogs.KavaTask:loginedVCDidAppear";
 NSString *const DefaultUserImagePath = @"FacebookSDKResources.bundle/FBProfilePictureView/images/fb_blank_profile_square.png";
 
+int const kTabBarHeight                 = 44;
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

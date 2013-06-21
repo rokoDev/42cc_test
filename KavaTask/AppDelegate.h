@@ -24,6 +24,8 @@ extern NSString *const SCSessionStateChangedNotification;
 extern NSString *const LoginedViewControllerNotification;
 extern NSString *const DefaultUserImagePath;
 
+extern int const kTabBarHeight;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
