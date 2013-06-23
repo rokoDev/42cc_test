@@ -20,6 +20,10 @@
 @property (strong, nonatomic) UIToolbar *keyboardToolbar;
 
 @property (weak, nonatomic) UITextField *activeField;
+@property (strong, nonatomic) NSString *textOnStartEditing;
+
+@property (strong, nonatomic) UIView *loadingView;
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
 
 - (void) requestNextFriendBatch:(NSString*)parameters;
 

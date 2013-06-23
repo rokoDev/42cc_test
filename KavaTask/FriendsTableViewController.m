@@ -14,7 +14,7 @@
 
 static NSString *CellIdentifier = @"Cell";
 
-const int friendsCountLimit = 8;
+const int friendsCountLimit = 3;
 
 const int defaultPriority = 1;//default user priority
 
@@ -60,6 +60,32 @@ const NSInteger componentCount = 4;//count components in picker view
     
     self.didLoadFriends = YES;
     
+    self.loadingView = [UIView new];//[[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    self.view = self.loadingView;
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.view addSubview:_activityIndicator];
+    [_activityIndicator setHidden:YES];
+    [_activityIndicator setHidesWhenStopped:YES];
+    _activityIndicator.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [_loadingView addConstraint:[NSLayoutConstraint constraintWithItem:_activityIndicator
+                                                   attribute:NSLayoutAttributeCenterX
+                                                   relatedBy:NSLayoutRelationEqual
+                                                      toItem:_loadingView
+                                                   attribute:NSLayoutAttributeCenterX
+                                                  multiplier:1.0
+                                                    constant:0]];
+    [_loadingView addConstraint:[NSLayoutConstraint constraintWithItem:_activityIndicator
+                                                             attribute:NSLayoutAttributeCenterY
+                                                             relatedBy:NSLayoutRelationEqual
+                                                                toItem:_loadingView
+                                                             attribute:NSLayoutAttributeCenterY
+                                                            multiplier:1.0
+                                                              constant:0]];
+
+    
     [self requestNextFriendBatch:self.nextRequest];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -80,6 +106,7 @@ const NSInteger componentCount = 4;//count components in picker view
     //parameters = @"friends.limit(3).fields(last_name,picture.width(75).height(75),first_name,link)"
     //NSLog(@"requestNextFriendBatch = %@", parameters);
     if (FBSession.activeSession.isOpen) {
+        [self.activityIndicator startAnimating];
         [FBRequestConnection startWithGraphPath:@"me"
                                      parameters:[NSDictionary dictionaryWithObject:parameters forKey:@"fields"]
                                      HTTPMethod:@"GET"
@@ -96,30 +123,21 @@ const NSInteger componentCount = 4;//count components in picker view
                                                                              friend[@"link"], @"link", nil];
                                           [friendDict setObject:[NSNumber numberWithInt:defaultPriority] forKey:@"priority"];
                                           
-                                          NSComparator comparator = ^(NSDictionary *obj1, NSDictionary *obj2) {
-                                              NSNumber * val1 = (NSNumber*)[obj1 objectForKey:@"priority"];
-                                              NSNumber * val2 = (NSNumber*)[obj1 objectForKey:@"priority"];
-                                              return [val1 compare:val2];
-                                          };
-                                          NSUInteger newIndex = [_friendList indexOfObject:friendDict
-                                                                       inSortedRange:(NSRange){0, [_friendList count]}
-                                                                             options:NSBinarySearchingInsertionIndex
-                                                                     usingComparator:comparator];
-                                          
-                                          [_friendList insertObject:friendDict atIndex:newIndex];
-                                          
-                                          //[_friendList addObject:friendDict];
+                                          [_friendList addObject:friendDict];
                                           ++i;
                                       }
                                       if (i == friendsCountLimit) {
                                           self.nextRequest = result[@"friends"][@"paging"][@"next"];
+                                          [self performSelector:@selector(requestNextFriendBatch:) withObject:self.nextRequest afterDelay:2.0f];
                                       }
                                       else
                                           self.nextRequest = nil;
-                                      
+                                      [self.activityIndicator stopAnimating];
+                                      self.view = self.friendTableView;
                                       [self.tableView reloadData];
                                   }
                                   else {
+                                      [self.activityIndicator stopAnimating];
                                       [(AppDelegate*)[[UIApplication sharedApplication] delegate] showErrorAlert:error];
                                   }
                               }];
@@ -269,33 +287,35 @@ const NSInteger componentCount = 4;//count components in picker view
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    NSLog(@"text begin editing");
-    
     return YES;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    NSLog(@"textFieldDidBeginEditing");
-    NSMutableArray *stringBuffer = [NSMutableArray arrayWithCapacity:[textField.text length]];
-    for (int i = 0; i < [textField.text length]; i++) {
-        [stringBuffer addObject:[NSString stringWithFormat:@"%C", [textField.text characterAtIndex:i]]];
-    }
-    int curComponent = 0;
-    for (NSString *val in stringBuffer) {
-        [self.priorityPicker selectRow:[val integerValue]-1 inComponent:curComponent++ animated:YES];
-    }
-    for (; curComponent < componentCount; curComponent++) {
-        [self.priorityPicker selectRow:10 inComponent:curComponent animated:YES];
-    }
+    NSLog(@"begin editing");
+    int priority = [textField.text intValue];
+    unsigned int len = [textField.text length];
+    int rowIndex;
+    do {
+        rowIndex = priority%10;
+        --len?++rowIndex:--rowIndex;
+        [self.priorityPicker selectRow:rowIndex inComponent:len animated:NO];
+        
+    } while ((priority/=10));
     
     self.activeField = textField;
+    self.textOnStartEditing = textField.text;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    NSLog(@"end editing");
+    if ([_textOnStartEditing isEqualToString:textField.text]) {
+        NSLog(@"text is equal");
+        self.activeField = nil;
+        return;
+    }
     id cell =[[self.activeField superview] superview];
-    NSLog(@"cell class = %@", [[cell class] description]);
     
     NSMutableDictionary *friendDict = [(CustomTableViewCell*)cell infoDict];
     [friendDict setObject:[NSNumber numberWithInteger:[textField.text integerValue]] forKey:@"priority"];
@@ -303,8 +323,8 @@ const NSInteger componentCount = 4;//count components in picker view
     
     NSComparator comparator = ^(NSDictionary *obj1, NSDictionary *obj2) {
         NSNumber * val1 = (NSNumber*)[obj1 objectForKey:@"priority"];
-        NSNumber * val2 = (NSNumber*)[obj1 objectForKey:@"priority"];
-        return [val1 compare:val2];
+        NSNumber * val2 = (NSNumber*)[obj2 objectForKey:@"priority"];
+        return [val2 compare:val1];
     };
     NSUInteger newIndex = [_friendList indexOfObject:friendDict
                                        inSortedRange:(NSRange){0, [_friendList count]}
@@ -323,24 +343,21 @@ const NSInteger componentCount = 4;//count components in picker view
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
     // Handle the selection
-    NSLog(@"didSelectRow");
-    if (self.activeField) {
-        NSMutableString *newPriorityStr = [NSMutableString new];
-        for (int i = 0; i < componentCount; i++) {
-            NSInteger selRow = [pickerView selectedRowInComponent:i];
-            if (10 == selRow) {
+    NSMutableString *newPriorityStr = [NSMutableString new];
+    for (int i = 0; i < componentCount; i++) {
+        NSInteger selRow = [pickerView selectedRowInComponent:i];
+        if (i > 0) {
+            if (0 == selRow) {
                 break;
-            }
-            else {
-                if (!i)
-                    ++selRow;
-                [newPriorityStr appendString:[NSString stringWithFormat:@"%i",selRow]];
+            } else {
+                [newPriorityStr appendString:[NSString stringWithFormat:@"%i",selRow-1]];
             }
         }
-        if ([newPriorityStr length]) {
-            self.activeField.text = newPriorityStr;
+        else {
+            [newPriorityStr appendString:[NSString stringWithFormat:@"%i",selRow+1]];
         }
     }
+    self.activeField.text = newPriorityStr;
 }
 
 // tell the picker how many rows are available for a given component
@@ -358,15 +375,17 @@ const NSInteger componentCount = 4;//count components in picker view
 
 // tell the picker the title for a given component
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSInteger titleNumber = row;
-    if (!component)
-        ++titleNumber;
+    
     NSMutableString *title;
-    if (10 == titleNumber) {
-        title = [NSMutableString stringWithString:@""];
+    
+    if (0 == component) {
+        title = [NSMutableString stringWithFormat:@"%i", row+1];
+    } else {
+        if (0 == row)
+            title = [NSMutableString stringWithString:@" "];
+        else
+            title = [NSMutableString stringWithFormat:@"%i", row-1];
     }
-    else
-        title = [NSMutableString stringWithString:[[NSNumber numberWithInteger:titleNumber] stringValue]];
     return title;
 }
 
@@ -390,17 +409,7 @@ const NSInteger componentCount = 4;//count components in picker view
 
 - (void)doneTyping:(id)sender
 {
-    NSLog(@"doneTyping");
-    
     [self.activeField resignFirstResponder];
-    
-//    UIView *myMainView = [[UIApplication sharedApplication] keyWindow];
-//    [myMainView loopThroughAllSubviewsWithBlock:^(UIView *view, BOOL *stop) {
-//        if (view.isFirstResponder) {
-//            [view resignFirstResponder];
-//            *stop = YES;
-//        }
-//    }];
 }
 
 @end
