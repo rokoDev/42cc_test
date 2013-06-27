@@ -7,7 +7,10 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "AppDelegate.h"
 
 @interface KavaTaskTests : SenTestCase
+
+@property(nonatomic, strong)AppDelegate *appDelegate;
 
 @end

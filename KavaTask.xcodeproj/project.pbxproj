@@ -17,12 +17,18 @@
 		1891C1CA176A27F300D18C61 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1C9176A27F300D18C61 /* Default@2x.png */; };
 		1891C1CC176A27F300D18C61 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1CB176A27F300D18C61 /* Default-568h@2x.png */; };
 		1891C1CF176A27F300D18C61 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1CD176A27F300D18C61 /* MainStoryboard.storyboard */; };
-		1891C1D2176A27F300D18C61 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891C1D1176A27F300D18C61 /* ViewController.m */; };
 		1891C1DA176A27F400D18C61 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1D9176A27F400D18C61 /* SenTestingKit.framework */; };
 		1891C1DB176A27F400D18C61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B5176A27F300D18C61 /* UIKit.framework */; };
 		1891C1DC176A27F400D18C61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B7176A27F300D18C61 /* Foundation.framework */; };
 		1891C1E4176A27F400D18C61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1E2176A27F400D18C61 /* InfoPlist.strings */; };
 		1891C1E7176A27F400D18C61 /* KavaTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891C1E6176A27F400D18C61 /* KavaTaskTests.m */; };
+		18CE361A176EF8E4000D035A /* MyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68E2176B406400BC9C0F /* MyScrollView.m */; };
+		18CE361F176EFA91000D035A /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */; };
+		18CE3620176F072B000D035A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B9176A27F300D18C61 /* CoreGraphics.framework */; };
+		18FD68DA176B038F00BC9C0F /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */; };
+		18FD68DD176B0F7900BC9C0F /* userface.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FD68DC176B0F7900BC9C0F /* userface.png */; };
+		18FD68E3176B406400BC9C0F /* MyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68E2176B406400BC9C0F /* MyScrollView.m */; };
+		CFF21C9264384691AA1CB0B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53916CB2A70E4D2DB4D7F29A /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,14 +56,19 @@
 		1891C1C9176A27F300D18C61 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1891C1CB176A27F300D18C61 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1891C1CE176A27F300D18C61 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		1891C1D0176A27F300D18C61 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1891C1D1176A27F300D18C61 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1891C1D8176A27F400D18C61 /* KavaTaskTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KavaTaskTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1891C1D9176A27F400D18C61 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1891C1E1176A27F400D18C61 /* KavaTaskTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KavaTaskTests-Info.plist"; sourceTree = "<group>"; };
 		1891C1E3176A27F400D18C61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1891C1E5176A27F400D18C61 /* KavaTaskTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KavaTaskTests.h; sourceTree = "<group>"; };
 		1891C1E6176A27F400D18C61 /* KavaTaskTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KavaTaskTests.m; sourceTree = "<group>"; };
+		18FD68D8176B038F00BC9C0F /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
+		18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeViewController.m; sourceTree = "<group>"; };
+		18FD68DC176B0F7900BC9C0F /* userface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userface.png; sourceTree = "<group>"; };
+		18FD68E1176B406400BC9C0F /* MyScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScrollView.h; sourceTree = "<group>"; };
+		18FD68E2176B406400BC9C0F /* MyScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScrollView.m; sourceTree = "<group>"; };
+		45BD6D9FE4A641D5830E9D5C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		53916CB2A70E4D2DB4D7F29A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +79,7 @@
 				1891C1B6176A27F300D18C61 /* UIKit.framework in Frameworks */,
 				1891C1B8176A27F300D18C61 /* Foundation.framework in Frameworks */,
 				1891C1BA176A27F300D18C61 /* CoreGraphics.framework in Frameworks */,
+				CFF21C9264384691AA1CB0B3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +90,7 @@
 				1891C1DA176A27F400D18C61 /* SenTestingKit.framework in Frameworks */,
 				1891C1DB176A27F400D18C61 /* UIKit.framework in Frameworks */,
 				1891C1DC176A27F400D18C61 /* Foundation.framework in Frameworks */,
+				18CE3620176F072B000D035A /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +104,7 @@
 				1891C1DF176A27F400D18C61 /* KavaTaskTests */,
 				1891C1B4176A27F300D18C61 /* Frameworks */,
 				1891C1B3176A27F300D18C61 /* Products */,
+				45BD6D9FE4A641D5830E9D5C /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +124,7 @@
 				1891C1B7176A27F300D18C61 /* Foundation.framework */,
 				1891C1B9176A27F300D18C61 /* CoreGraphics.framework */,
 				1891C1D9176A27F400D18C61 /* SenTestingKit.framework */,
+				53916CB2A70E4D2DB4D7F29A /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,8 +135,10 @@
 				1891C1C4176A27F300D18C61 /* AppDelegate.h */,
 				1891C1C5176A27F300D18C61 /* AppDelegate.m */,
 				1891C1CD176A27F300D18C61 /* MainStoryboard.storyboard */,
-				1891C1D0176A27F300D18C61 /* ViewController.h */,
-				1891C1D1176A27F300D18C61 /* ViewController.m */,
+				18FD68D8176B038F00BC9C0F /* AboutMeViewController.h */,
+				18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */,
+				18FD68E1176B406400BC9C0F /* MyScrollView.h */,
+				18FD68E2176B406400BC9C0F /* MyScrollView.m */,
 				1891C1BC176A27F300D18C61 /* Supporting Files */,
 			);
 			path = KavaTask;
@@ -130,6 +147,7 @@
 		1891C1BC176A27F300D18C61 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				18FD68DB176B0F5F00BC9C0F /* Resources */,
 				1891C1BD176A27F300D18C61 /* KavaTask-Info.plist */,
 				1891C1BE176A27F300D18C61 /* InfoPlist.strings */,
 				1891C1C1176A27F300D18C61 /* main.m */,
@@ -160,6 +178,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		18FD68DB176B0F5F00BC9C0F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18FD68DC176B0F7900BC9C0F /* userface.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,9 +193,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1891C1EA176A27F400D18C61 /* Build configuration list for PBXNativeTarget "KavaTask" */;
 			buildPhases = (
+				FFE717B1FEFF41469601AD8D /* Check Pods Manifest.lock */,
 				1891C1AE176A27F300D18C61 /* Sources */,
 				1891C1AF176A27F300D18C61 /* Frameworks */,
 				1891C1B0176A27F300D18C61 /* Resources */,
+				A1A9E1BA028643BF8EC2E43F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +264,7 @@
 				1891C1CA176A27F300D18C61 /* Default@2x.png in Resources */,
 				1891C1CC176A27F300D18C61 /* Default-568h@2x.png in Resources */,
 				1891C1CF176A27F300D18C61 /* MainStoryboard.storyboard in Resources */,
+				18FD68DD176B0F7900BC9C0F /* userface.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +292,34 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		A1A9E1BA028643BF8EC2E43F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		FFE717B1FEFF41469601AD8D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -272,7 +329,8 @@
 			files = (
 				1891C1C2176A27F300D18C61 /* main.m in Sources */,
 				1891C1C6176A27F300D18C61 /* AppDelegate.m in Sources */,
-				1891C1D2176A27F300D18C61 /* ViewController.m in Sources */,
+				18FD68DA176B038F00BC9C0F /* AboutMeViewController.m in Sources */,
+				18FD68E3176B406400BC9C0F /* MyScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +339,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1891C1E7176A27F400D18C61 /* KavaTaskTests.m in Sources */,
+				18CE361A176EF8E4000D035A /* MyScrollView.m in Sources */,
+				18CE361F176EFA91000D035A /* AboutMeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,9 +440,11 @@
 		};
 		1891C1EB176A27F400D18C61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45BD6D9FE4A641D5830E9D5C /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KavaTask/KavaTask-Prefix.pch";
+				HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}";
 				INFOPLIST_FILE = "KavaTask/KavaTask-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -391,9 +453,11 @@
 		};
 		1891C1EC176A27F400D18C61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45BD6D9FE4A641D5830E9D5C /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KavaTask/KavaTask-Prefix.pch";
+				HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}";
 				INFOPLIST_FILE = "KavaTask/KavaTask-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -410,6 +474,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KavaTask/KavaTask-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"/Users/apple/Documents/iOS Projects/KavaTask/Pods/FMDB/src\"",
+					"${PODS_HEADERS_SEARCH_PATHS}",
+				);
 				INFOPLIST_FILE = "KavaTaskTests/KavaTaskTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -427,6 +495,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KavaTask/KavaTask-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"/Users/apple/Documents/iOS Projects/KavaTask/Pods/FMDB/src\"",
+					"${PODS_HEADERS_SEARCH_PATHS}",
+				);
 				INFOPLIST_FILE = "KavaTaskTests/KavaTaskTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -453,6 +525,7 @@
 				1891C1EC176A27F400D18C61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1891C1ED176A27F400D18C61 /* Build configuration list for PBXNativeTarget "KavaTaskTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +534,7 @@
 				1891C1EF176A27F400D18C61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
