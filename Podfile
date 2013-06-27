@@ -1,5 +1,7 @@
-platform :ios
+platform :ios, '5.0'
 pod 'FMDB'
 pod 'Facebook-iOS-SDK', '3.5.2'
 pod 'OCMock', '2.1.1'
 pod 'Reachability'
+pod 'RaptureXML'
+pod 'SDWebImage'
