@@ -8,6 +8,7 @@
 
 #import "CustomTableViewCell.h"
 #import "AppDelegate.h"
+#import "DateField.h"
 
 @implementation CustomTableViewCell
 
@@ -47,6 +48,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Configure Main Label
+        self.priorityField.enableCut = NO;
+        self.priorityField.enablePaste = NO;
+        //self.showsReorderControl = YES;
     }
     return self;
 }

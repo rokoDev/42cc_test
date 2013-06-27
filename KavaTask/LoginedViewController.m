@@ -20,7 +20,7 @@
 #define SWITCH(s)                       for (NSString *__s__ = (s); ; )
 #define DEFAULT
 
-#define kTabBarHeight   44
+//#define kTabBarHeight   44
 #define kKeyboardAnimationDuration  0.3f
 
 

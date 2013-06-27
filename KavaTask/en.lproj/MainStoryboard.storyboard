@@ -52,7 +52,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="80" id="XWZ-m7-zJN" customClass="CustomTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" showsReorderControl="YES" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="80" id="XWZ-m7-zJN" customClass="CustomTableViewCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -67,23 +67,33 @@
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQy-i6-O9d">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="209" id="anr-gJ-W48"/>
-                                                <constraint firstAttribute="height" constant="39" id="wRJ-VM-pLQ"/>
+                                                <constraint firstAttribute="width" constant="130" id="36v-2T-2b6"/>
+                                                <constraint firstAttribute="height" constant="39" id="83U-va-bN1"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BKH-ww-BPb" customClass="DateField">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="45" id="g1X-nN-mTU"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="jQy-i6-O9d" secondAttribute="trailing" constant="20" type="default" id="0fZ-Hq-GdY"/>
-                                    <constraint firstItem="JuE-pV-99p" firstAttribute="centerY" secondItem="XWZ-m7-zJN" secondAttribute="centerY" type="default" id="NIb-mc-6Al"/>
+                                    <constraint firstAttribute="trailing" secondItem="BKH-ww-BPb" secondAttribute="trailing" constant="7" id="I5p-Rk-HVE"/>
+                                    <constraint firstItem="jQy-i6-O9d" firstAttribute="leading" secondItem="XWZ-m7-zJN" secondAttribute="leading" constant="91" id="SwD-gp-dlD"/>
                                     <constraint firstItem="jQy-i6-O9d" firstAttribute="top" secondItem="XWZ-m7-zJN" secondAttribute="top" constant="20" type="default" id="Y0a-Wu-DkK"/>
+                                    <constraint firstItem="BKH-ww-BPb" firstAttribute="centerY" secondItem="JuE-pV-99p" secondAttribute="centerY" type="default" id="ZEG-LE-s5z"/>
                                     <constraint firstItem="JuE-pV-99p" firstAttribute="leading" secondItem="XWZ-m7-zJN" secondAttribute="leading" constant="9" id="e1X-ot-h8Z"/>
+                                    <constraint firstItem="BKH-ww-BPb" firstAttribute="centerY" secondItem="XWZ-m7-zJN" secondAttribute="centerY" type="default" id="wVi-RW-zFW"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="priorityField" destination="BKH-ww-BPb" id="r3w-ua-wWz"/>
                                     <outlet property="userName" destination="jQy-i6-O9d" id="kvh-fk-7Tl"/>
                                     <outlet property="userPhoto" destination="JuE-pV-99p" id="ACm-dm-g55"/>
                                 </connections>
@@ -100,6 +110,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ui-EN-kgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="C5C-Ge-CfM">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="-1045" y="354"/>
         </scene>
@@ -188,14 +203,18 @@
         <class className="CustomTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomTableViewCell.h"/>
             <relationships>
+                <relationship kind="outlet" name="priorityField" candidateClass="DateField"/>
                 <relationship kind="outlet" name="userName" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="userPhoto" candidateClass="UIImageView"/>
             </relationships>
         </class>
+        <class className="DateField" superclassName="UITextField">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DateField.h"/>
+        </class>
         <class className="FriendsTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FriendsTableViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="friendTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="friendTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="GoingToLoginViewController" superclassName="UIViewController">
