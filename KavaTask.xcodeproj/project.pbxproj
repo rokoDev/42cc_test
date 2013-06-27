@@ -32,6 +32,10 @@
 		1891C1DC176A27F400D18C61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B7176A27F300D18C61 /* Foundation.framework */; };
 		1891C1E4176A27F400D18C61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1891C1E2176A27F400D18C61 /* InfoPlist.strings */; };
 		1891C1E7176A27F400D18C61 /* KavaTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891C1E6176A27F400D18C61 /* KavaTaskTests.m */; };
+		18C1A77617735EBC003173AF /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A77517735EBC003173AF /* FriendsTableViewController.m */; };
+		18C1A77717735EBC003173AF /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A77517735EBC003173AF /* FriendsTableViewController.m */; };
+		18C1A77A1773BFD0003173AF /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A7791773BFD0003173AF /* CustomTableViewCell.m */; };
+		18C1A77B1773BFD0003173AF /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A7791773BFD0003173AF /* CustomTableViewCell.m */; };
 		18CE361F176EFA91000D035A /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */; };
 		18CE3620176F072B000D035A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891C1B9176A27F300D18C61 /* CoreGraphics.framework */; };
 		18FD42FD17722642009BD3DE /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD42FC17722642009BD3DE /* NSString+Validation.m */; };
@@ -87,6 +91,10 @@
 		1891C1E3176A27F400D18C61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1891C1E5176A27F400D18C61 /* KavaTaskTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KavaTaskTests.h; sourceTree = "<group>"; };
 		1891C1E6176A27F400D18C61 /* KavaTaskTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KavaTaskTests.m; sourceTree = "<group>"; };
+		18C1A77417735EBC003173AF /* FriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
+		18C1A77517735EBC003173AF /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
+		18C1A7781773BFD0003173AF /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		18C1A7791773BFD0003173AF /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		18FD42FB17722642009BD3DE /* NSString+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validation.h"; sourceTree = "<group>"; };
 		18FD42FC17722642009BD3DE /* NSString+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validation.m"; sourceTree = "<group>"; };
 		18FD68D8176B038F00BC9C0F /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
@@ -164,6 +172,10 @@
 				187312AD1770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.h */,
 				187312AE1770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.m */,
 				1891C1CD176A27F300D18C61 /* MainStoryboard.storyboard */,
+				18C1A77417735EBC003173AF /* FriendsTableViewController.h */,
+				18C1A77517735EBC003173AF /* FriendsTableViewController.m */,
+				18C1A7781773BFD0003173AF /* CustomTableViewCell.h */,
+				18C1A7791773BFD0003173AF /* CustomTableViewCell.m */,
 				18FD68D8176B038F00BC9C0F /* AboutMeViewController.h */,
 				18FD68D9176B038F00BC9C0F /* AboutMeViewController.m */,
 				18361C2B176F50B9001E5397 /* LoginedViewController.h */,
@@ -374,6 +386,8 @@
 				187312AF1770B84E006AEE97 /* UIView+LoopThroughAllSubviewsWithBlock.m in Sources */,
 				187312B31771A6C6006AEE97 /* DateField.m in Sources */,
 				18FD42FD17722642009BD3DE /* NSString+Validation.m in Sources */,
+				18C1A77617735EBC003173AF /* FriendsTableViewController.m in Sources */,
+				18C1A77A1773BFD0003173AF /* CustomTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +405,8 @@
 				18FD42FE17722642009BD3DE /* NSString+Validation.m in Sources */,
 				18FD42FF17726DD8009BD3DE /* LoginedViewController.m in Sources */,
 				184EE56B177342AC002947D6 /* TabControllerTest.m in Sources */,
+				18C1A77717735EBC003173AF /* FriendsTableViewController.m in Sources */,
+				18C1A77B1773BFD0003173AF /* CustomTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
