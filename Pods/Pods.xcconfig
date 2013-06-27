@@ -1,0 +1,8 @@
+ALWAYS_SEARCH_USER_PATHS = YES
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = ${PODS_HEADERS_SEARCH_PATHS} $(SDKROOT)/usr/include/libxml2
+OTHER_LDFLAGS = -ObjC -lsqlite3 -lsqlite3.0 -lxml2 -lz -framework CoreLocation -framework ImageIO -framework MapKit -framework SystemConfiguration -weak_framework Accounts -weak_framework AdSupport -weak_framework Security -weak_framework Social
+PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/FMDB" "${PODS_ROOT}/BuildHeaders/Facebook-iOS-SDK" "${PODS_ROOT}/BuildHeaders/Facebook-iOS-SDK/FacebookSDK" "${PODS_ROOT}/BuildHeaders/OCMock" "${PODS_ROOT}/BuildHeaders/RaptureXML" "${PODS_ROOT}/BuildHeaders/Reachability" "${PODS_ROOT}/BuildHeaders/SDWebImage" "${PODS_ROOT}/BuildHeaders/libwebp" "${PODS_ROOT}/BuildHeaders/libwebp/webp"
+PODS_HEADERS_SEARCH_PATHS = ${PODS_PUBLIC_HEADERS_SEARCH_PATHS}
+PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/FMDB" "${PODS_ROOT}/Headers/Facebook-iOS-SDK" "${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK" "${PODS_ROOT}/Headers/OCMock" "${PODS_ROOT}/Headers/RaptureXML" "${PODS_ROOT}/Headers/Reachability" "${PODS_ROOT}/Headers/SDWebImage" "${PODS_ROOT}/Headers/libwebp" "${PODS_ROOT}/Headers/libwebp/webp"
+PODS_ROOT = ${SRCROOT}/Pods
