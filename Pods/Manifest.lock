@@ -1,0 +1,31 @@
+PODS:
+  - Facebook-iOS-SDK (3.5.2)
+  - FMDB (2.1):
+    - FMDB/standard
+  - FMDB/common (2.1)
+  - FMDB/standard (2.1):
+    - FMDB/common
+  - OCMock (2.1.1)
+  - RaptureXML (1.0.1)
+  - Reachability (3.1.0)
+  - SDWebImage (3.2):
+    - SDWebImage/Core
+  - SDWebImage/Core (3.2)
+
+DEPENDENCIES:
+  - Facebook-iOS-SDK (= 3.5.2)
+  - FMDB
+  - OCMock (= 2.1.1)
+  - RaptureXML
+  - Reachability
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  Facebook-iOS-SDK: 0690c15914d4e412f5f0ef0f8cce34fd0d39f7ce
+  FMDB: 66010e9b750838dea71748df591fc118598f21c7
+  OCMock: 79212e5e328378af5cfd6edb5feacfd6c49cd8a3
+  RaptureXML: ef017fda62eb95c60300108366d1f0cd0c28cbd4
+  Reachability: ba94ecd4eaa037be3d0588b38956672588530c5b
+  SDWebImage: f742ac91b65bd34b6d452325115e2ded3a73380e
+
+COCOAPODS: 0.20.2

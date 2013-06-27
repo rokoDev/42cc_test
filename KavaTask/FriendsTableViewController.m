@@ -18,7 +18,7 @@ const int friendsCountLimit = 3;
 
 const int defaultPriority = 1;//default user priority
 
-const NSInteger componentCount = 4;//count components in picker view
+const NSInteger componentCount = 1;//count components in picker view
 
 @interface FriendsTableViewController ()
 
@@ -294,14 +294,15 @@ const NSInteger componentCount = 4;//count components in picker view
 {
     NSLog(@"begin editing");
     int priority = [textField.text intValue];
-    unsigned int len = [textField.text length];
-    int rowIndex;
-    do {
-        rowIndex = priority%10;
-        --len?++rowIndex:--rowIndex;
-        [self.priorityPicker selectRow:rowIndex inComponent:len animated:NO];
-        
-    } while ((priority/=10));
+//    unsigned int len = [textField.text length];
+//    int rowIndex;
+//    do {
+//        rowIndex = priority%10;
+//        --len?++rowIndex:--rowIndex;
+//        [self.priorityPicker selectRow:rowIndex inComponent:len animated:NO];
+//        
+//    } while ((priority/=10));
+    [self.priorityPicker selectRow:priority-1 inComponent:0 animated:NO];
     
     self.activeField = textField;
     self.textOnStartEditing = textField.text;
@@ -362,7 +363,7 @@ const NSInteger componentCount = 4;//count components in picker view
 
 // tell the picker how many rows are available for a given component
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    NSInteger numberOfRows = 9;
+    NSInteger numberOfRows = 9999;
     if (component > 0)
         numberOfRows+=2;//rows for ' ' and '0'
     return numberOfRows;
