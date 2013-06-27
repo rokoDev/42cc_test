@@ -7,9 +7,9 @@
 //
 
 #import "AboutMeViewController.h"
-#import "MyScrollView.h"
 #import "AppDelegate.h"
 #import "FMDatabase.h"
+
 
 @interface AboutMeViewController ()
 
@@ -28,28 +28,37 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"AboutMeViewController: viewDidLoad");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
     CGRect fullScreenRect=[[UIScreen mainScreen] applicationFrame];
     fullScreenRect.origin = CGPointZero;
-    UIScrollView *sv = [[MyScrollView alloc] initWithFrame:fullScreenRect];
+    UIScrollView *sv = [[UIScrollView alloc] initWithFrame:fullScreenRect];
     self.scrollView = sv;
     [[self mainView] addSubview:self.scrollView];
+    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     
     UIImageView *iv  = [[UIImageView alloc] initWithFrame:CGRectZero];
     self.imageView = iv;
     [[self scrollView] addSubview:self.imageView];
     self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    if (![self loadDataFromDatabase:AboutMeTableName]) {
+    if (![self loadDataFromDatabase:AboutMeDatabaseFileName]) {
         NSLog(@"couldn't load data from database");
         [self createNewUserData];
-        [self saveToDatabase:AboutMeTableName];
+        [self saveToDatabase:AboutMeDatabaseFileName];
     }
     else {
         NSLog(@"data has been successfully loaded form database");
     }
+    [self placeUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
     [self placeUI];
 }
 
@@ -77,6 +86,15 @@
 - (void)placeUI
 {
     UIScrollView *sv = self.scrollView;
+    [sv removeConstraints:sv.constraints];
+    [self.view removeConstraints:self.view.constraints];
+    for (id someSubview in [sv subviews]) {
+        if ([someSubview isKindOfClass:[UILabel class]])
+        {
+            [someSubview removeFromSuperview];
+        }
+    }
+    [sv setContentOffset:CGPointZero];
     
     sv.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addConstraints:
@@ -93,8 +111,6 @@
     
     
     UIImageView *iv = self.imageView;
-    
-    [sv addSubview:iv];
     
     iv.translatesAutoresizingMaskIntoConstraints = NO;
     [sv addConstraint:[NSLayoutConstraint constraintWithItem:iv
@@ -163,77 +179,31 @@
 {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    //create database if it does not exists
-    FMDatabase *aboutMeDB = [FMDatabase databaseWithPath:[appDelegate getFullPathForFileInDocDir:databaseFileName]];
+    NSDictionary *savingInfo = @{DBFileNameKey: databaseFileName,
+                                 PhotoField: self.imageView.image,
+                                 InfoField: self.userInfo,
+                                 KeyField: MyIdInDatabase};
     
-    //open database
-    if (![aboutMeDB open]) {
-        return;
-    }
-    
-    //create table if it does not exists
-    NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('%@' TEXT UNIQUE, '%@' BLOB, '%@' BLOB)", AboutMeTableName, KeyField, PhotoField, InfoField];
-    if (![aboutMeDB executeUpdate:sql]) {
-        NSError *error = [aboutMeDB lastError];
-        NSLog(@"Error: %@ code: %ld", error.localizedDescription, (long)error.code);
-        //[appDelegate showErrorAlert:error];
-        return;
-    }
-    
-    //save data to the database
-    sql = [NSString stringWithFormat:@"INSERT INTO %@ ('%@', '%@', '%@') VALUES (?, ?, ?)", AboutMeTableName, KeyField, PhotoField, InfoField];
-    NSData *photoData = UIImagePNGRepresentation(self.imageView.image);
-    NSData *infoData = [NSPropertyListSerialization dataWithPropertyList:self.userInfo
-                                                                  format:NSPropertyListBinaryFormat_v1_0
-                                                                 options:0
-                                                                   error:NULL];
-    if (![aboutMeDB executeUpdate:sql, MyIdInDatabase, photoData, infoData]) {
-        NSError *error = [aboutMeDB lastError];
-        NSLog(@"Error: %@ code: %ld", error.localizedDescription, (long)error.code);
-        //[appDelegate showErrorAlert:error];
-        return;
-    }
-    
-    NSLog(@"data has been saved to database");
-    
-    //close database
-    [aboutMeDB close];
+    [appDelegate saveToDatabase:savingInfo];
 }
 
 - (BOOL)loadDataFromDatabase:(NSString*)databaseFileName
 {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    //create database if it does not exists
-    FMDatabase *aboutMeDB = [FMDatabase databaseWithPath:[appDelegate getFullPathForFileInDocDir:databaseFileName]];
+    NSMutableDictionary *loadingInfo = [NSMutableDictionary new];
     
-    //open database
-    if (![aboutMeDB open]) {
-        return NO;
+    [loadingInfo setObject:databaseFileName forKey:DBFileNameKey];
+    [loadingInfo setObject:MyIdInDatabase forKey:KeyField];
+    
+    BOOL retVal = [appDelegate loadDataFromDatabase:loadingInfo];
+    
+    if (retVal) {
+        self.imageView.image = [loadingInfo objectForKey:PhotoField];
+        self.userInfo = [loadingInfo objectForKey:InfoField];
     }
     
-    //read database
-    NSString* sqliteQuery = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ = '%@'", AboutMeTableName, KeyField, MyIdInDatabase];
-    FMResultSet *result = [aboutMeDB executeQuery:sqliteQuery];
-    
-    if ([result next]) {
-        NSData *photoData = [result dataForColumn:PhotoField];
-        NSData *infoData = [result dataForColumn:InfoField];
-        
-        if (!photoData || !infoData)
-            return NO;
-        UIImage *userPhoto = [UIImage imageWithData:photoData];
-        self.imageView.image = userPhoto;
-        
-        NSPropertyListFormat plistFormat;
-        self.userInfo = [NSPropertyListSerialization propertyListWithData:infoData
-                                                                  options:0
-                                                                   format:&plistFormat
-                                                                    error:NULL];
-        return YES;
-    }
-    else
-        return NO;
+    return retVal;
 }
 
 @end

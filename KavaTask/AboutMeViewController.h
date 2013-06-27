@@ -16,7 +16,6 @@
 @property (weak, nonatomic) UIImageView *imageView;
 
 @property (strong, nonatomic) NSDictionary *userInfo;
-//@property (strong, nonatomic) FMDatabase *aboutMeDB;
 
 - (void)createNewUserData;
 - (void)placeUI;
