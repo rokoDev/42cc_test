@@ -5,12 +5,23 @@ PODS:
   - FMDB/common (2.1)
   - FMDB/standard (2.1):
     - FMDB/common
+  - libwebp (0.3.0-rc7):
+    - libwebp/dec
+    - libwebp/dsp
+    - libwebp/utils
+    - libwebp/webp
+  - libwebp/dec (0.3.0-rc7)
+  - libwebp/dsp (0.3.0-rc7)
+  - libwebp/utils (0.3.0-rc7)
+  - libwebp/webp (0.3.0-rc7)
   - OCMock (2.1.1)
   - RaptureXML (1.0.1)
   - Reachability (3.1.0)
-  - SDWebImage (3.2):
-    - SDWebImage/Core
-  - SDWebImage/Core (3.2)
+  - SDWebImage (3.3):
+    - libwebp
+    - SDWebImage/MapKit
+  - SDWebImage/MapKit (3.3):
+    - libwebp
 
 DEPENDENCIES:
   - Facebook-iOS-SDK (= 3.5.2)
@@ -23,9 +34,10 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Facebook-iOS-SDK: 0690c15914d4e412f5f0ef0f8cce34fd0d39f7ce
   FMDB: 66010e9b750838dea71748df591fc118598f21c7
+  libwebp: 40517fa1fd3716eded73b4696c45fc0b66e4b414
   OCMock: 79212e5e328378af5cfd6edb5feacfd6c49cd8a3
   RaptureXML: ef017fda62eb95c60300108366d1f0cd0c28cbd4
   Reachability: ba94ecd4eaa037be3d0588b38956672588530c5b
-  SDWebImage: f742ac91b65bd34b6d452325115e2ded3a73380e
+  SDWebImage: 79a8bac9ccf85b269100b294f7b43684dab8bf8a
 
 COCOAPODS: 0.20.2
